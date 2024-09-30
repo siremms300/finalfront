@@ -1,0 +1,17 @@
+export { default as AddSchool } from "./AddSchool";
+export { default as Admin } from "./Admin";
+export { default as AllSchools } from "./AllSchools";
+export { default as School } from "./School";
+export { default as MySchools } from "./MySchools";
+export { default as ManageSchools } from "./ManageSchools";
+export { default as DeleteSchool } from "./DeleteSchool";
+export { default as EditSchool } from "./EditSchool";
+export { default as ErrorSchool } from "./ErrorSchool";
+export { default as Landing } from "./Landing";
+export { default as Login } from "./Login";
+export { default as Profile } from "./Profile";
+export { default as EditProfile } from "./EditProfile";
+export { default as ManageUsers } from "./ManageUsers";
+export { default as Register } from "./Register";
+export { default as Stats } from "./Stats";
+export { default as Error } from "./Error";
