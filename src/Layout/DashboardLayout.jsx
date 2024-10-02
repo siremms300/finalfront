@@ -16,7 +16,7 @@ const DashboardLayout = () => {
     const handleLogout = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/v1/auth/logout",
+                "http://195.35.25.14:3000/api/v1/auth/logout",  // we replaced localhost with ip address 
                 { withCredentials: true }
             );
             Swal.fire({

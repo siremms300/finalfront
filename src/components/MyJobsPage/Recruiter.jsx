@@ -20,7 +20,7 @@ const Recruiter = () => {
         queryKey: ["rec-schools"],
         queryFn: async () => {
             const response = await axios.get(
-                `http://localhost:3000/api/v1/application/recruiter-schools`, // Update to reflect schools
+                `http://195.35.25.14:3000/api/v1/application/recruiter-schools`, // Update to reflect schools
                 {
                     withCredentials: true,
                 }

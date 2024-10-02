@@ -14,8 +14,9 @@ const SearchAndFilterContext = ({ children }) => {
         setSearchLoading(true); // Indicate loading state
         try {
             const query = new URLSearchParams(searchParams).toString();
-            const response = await axios.get(
-                `http://localhost:3000/api/v1/schools/search?${query}`, 
+            const response = await axios.get( 
+                // `http://localhost:3000/api/v1/schools/search?${query}`, 
+                `http://195.35.25.14:3000/api/v1/schools/search?${query}`, 
                 { withCredentials: true }
             );
             setSearchError({ status: false, message: "" });
