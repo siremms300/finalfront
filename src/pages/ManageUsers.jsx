@@ -20,7 +20,7 @@ const ManageUsers = () => {
     } = useQuery({
         queryKey: ["users"],
         queryFn: () =>
-            getAllHandler(`http://localhost:3000/api/v1/users`),
+            getAllHandler(`http://195.35.25.14:3000/api/v1/users`),
     });
 
     const updateUserModal = (id, role) => {

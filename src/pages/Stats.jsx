@@ -32,7 +32,7 @@ const Stats = () => {
         queryKey: ["stats"],
         queryFn: () =>
             getAllHandler(
-                `http://localhost:3000/api/v1/admin/stats`
+                `http://195.35.25.14:3000/api/v1/admin/stats`
             ),
     });
 
