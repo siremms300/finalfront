@@ -38,7 +38,9 @@ const Register = () => {
             // posting
             try {
                 const response = await axios.post(
+
                     "http://195.35.25.14/api/v1/auth/register",
+ 
                     user
                 );
 

@@ -59,8 +59,10 @@ const EditProfile = () => {
                 updateUser.gender = gender;
             }
 
+            
             const response = await axios.patch(
                 `http://195.35.25.14/api/v1/users`,
+ 
                 updateUser,
                 {
                     withCredentials: true,

@@ -127,7 +127,9 @@ const School = () => {
         error,
     } = useQuery({
         queryKey: ["school", id],
+
         queryFn: () => getSingleHandler(`http://195.35.25.14/api/v1/schools/${id}`),
+
     });
 
     const date = dayjs(school?.applicationDeadline).format("MMM Do, YYYY");

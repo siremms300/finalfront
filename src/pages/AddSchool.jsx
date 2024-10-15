@@ -561,8 +561,10 @@ const AddSchool = () => {
       
       console.log(newSchool);
       try {
+
         const response = await axios.post(
           "http://195.35.25.14/api/v1/schools", // Adjust the endpoint
+
           newSchool,
           {
             withCredentials: true,

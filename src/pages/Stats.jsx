@@ -32,7 +32,9 @@ const Stats = () => {
         queryKey: ["stats"],
         queryFn: () =>
             getAllHandler(
+ 
                 `http://195.35.25.14/api/v1/admin/stats`
+ 
             ),
     });
 

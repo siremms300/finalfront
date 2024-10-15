@@ -11,8 +11,10 @@ const LoadingComTwo = ({ onLoadingComplete }) => {
             if (onLoadingComplete) {
                 onLoadingComplete(); // Trigger callback after loading is complete
             }
+
         }, 6000); // 5 second delay
  
+
         return () => clearTimeout(timer); // Clean up on unmount
     }, [onLoadingComplete]);
 

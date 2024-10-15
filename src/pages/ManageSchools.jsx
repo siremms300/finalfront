@@ -25,7 +25,9 @@ const ManageJobs = () => {
         queryKey: ["my-jobs"],
         queryFn: () =>
             getAllHandler(
+
                 `http://195.35.25.14/api/v1/jobs/my-jobs`
+
             ),
     });
 
