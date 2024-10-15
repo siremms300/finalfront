@@ -13,12 +13,9 @@ const UserContext = ({ children }) => {
         setUserLoading(true);
         try {
             const response = await axios.get(
-<<<<<<< HEAD
+
                 `http://195.35.25.14/api/v1/auth/me`,
-=======
-                // `http://localhost:3000/api/v1/auth/me`,
-                `http://195.35.25.14:3000/api/v1/auth/me`,
->>>>>>> f34e2bc227cdf798aa25429decda0321920b5b9b
+
                 { withCredentials: true }
             );
             setUserError({ status: false, message: "" });
