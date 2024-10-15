@@ -9,7 +9,7 @@ const Admin = () => {
         queryKey: ["admin_info"],
         queryFn: () =>
             getAllHandler(
-                `http://195.35.25.14:3000/api/v1/admin/info`
+                `http://195.35.25.14/api/v1/admin/info`
             ),
     });
 

@@ -14,7 +14,7 @@ const UserContext = ({ children }) => {
         try {
             const response = await axios.get(
 
-                `http://195.35.25.14:3000/api/v1/auth/me`,
+                `http://195.35.25.14/api/v1/auth/me`,
 
                 { withCredentials: true }
             );
@@ -31,7 +31,7 @@ const UserContext = ({ children }) => {
         try {
             await axios.post(
 
-                `http://195.35.25.14:3000/api/v1/auth/logout`,
+                `http://195.35.25.14/api/v1/auth/logout`,
                 {},
                 { withCredentials: true }
             );

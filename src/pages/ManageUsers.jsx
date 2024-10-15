@@ -21,7 +21,7 @@ const ManageUsers = () => {
         queryKey: ["users"],
         queryFn: () =>
  
-            getAllHandler(`http://195.35.25.14:3000/api/v1/users`),
+            getAllHandler(`http://195.35.25.14/api/v1/users`),
  
     });
 
@@ -45,7 +45,7 @@ const ManageUsers = () => {
         const updateUser = { id, role };
         try {
             const response = await axios.patch(
-                `http://195.35.25.14:3000/api/v1/admin/update-role`,
+                `http://195.35.25.14/api/v1/admin/update-role`,
                 updateUser,
                 { withCredentials: true }
             );

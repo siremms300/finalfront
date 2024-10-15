@@ -792,7 +792,7 @@ export default SearchAndFilter;
         
 
 
-//         const baseUrl = "http://195.35.25.14:3000/api/v1/schools?page=1&limit=5";
+//         const baseUrl = "http://195.35.25.14/api/v1/schools?page=1&limit=5";
 //         let url = baseUrl;
 
 //         const queryParams = {};
@@ -1021,7 +1021,7 @@ export default SearchAndFilter;
 
 
 //     const handleSearch = () => {
-//         const baseUrl = "http://195.35.25.14:3000/api/v1/schools?page=1&limit=5";
+//         const baseUrl = "http://195.35.25.14/api/v1/schools?page=1&limit=5";
 //         let url = baseUrl;
     
 //         // Construct query params

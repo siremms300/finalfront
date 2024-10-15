@@ -17,7 +17,7 @@ const DashboardLayout = () => {
         try {
             const response = await axios.post(
 
-                "http://195.35.25.14:3000/api/v1/auth/logout",
+                "http://195.35.25.14/api/v1/auth/logout",
 
                 { withCredentials: true }
             );
