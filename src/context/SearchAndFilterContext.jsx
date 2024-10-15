@@ -15,7 +15,7 @@ const SearchAndFilterContext = ({ children }) => {
         try {
             const query = new URLSearchParams(searchParams).toString();
             const response = await axios.get(
-                `http://localhost:3000/api/v1/schools/search?${query}`, 
+                `http://195.35.25.14/api/v1/schools/search?${query}`, 
                 { withCredentials: true }
             );
             setSearchError({ status: false, message: "" });
@@ -36,7 +36,7 @@ const SearchAndFilterContext = ({ children }) => {
     //     try {
     //         const query = new URLSearchParams(searchParams).toString();
     //         const response = await axios.get(
-    //             `http://localhost:3000/api/v1/schools/search?${query}`, 
+    //             `http://195.35.25.14/api/v1/schools/search?${query}`, 
     //             { withCredentials: true }
     //         );
     //         setSearchError({ status: false, message: "" });
@@ -102,7 +102,7 @@ export { useSearchAndFilterContext, SearchAndFilterContext };
 //         try {
 //             const query = new URLSearchParams(searchParams).toString();
 //             const response = await axios.get(
-//                 `http://localhost:3000/api/v1/schools/search?${query}`, 
+//                 `http://195.35.25.14/api/v1/schools/search?${query}`, 
 //                 { withCredentials: true }
 //             );
 //             setSearchError({ status: false, message: "" });

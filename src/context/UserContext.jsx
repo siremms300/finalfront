@@ -13,7 +13,7 @@ const UserContext = ({ children }) => {
         setUserLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/api/v1/auth/me`,
+                `http://195.35.25.14/api/v1/auth/me`,
                 { withCredentials: true }
             );
             setUserError({ status: false, message: "" });
@@ -28,7 +28,7 @@ const UserContext = ({ children }) => {
     const logout = async () => {
         try {
             await axios.post(
-                `http://localhost:3000/api/v1/auth/logout`,
+                `http://195.35.25.14/api/v1/auth/logout`,
                 {},
                 { withCredentials: true }
             );

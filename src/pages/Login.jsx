@@ -30,7 +30,7 @@ const Login = () => {
         // posting
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/v1/auth/login",
+                "http://195.35.25.14/api/v1/auth/login",
                 // "http://192.168.148.3:3000/api/v1/auth/login",
                 data,
                 {
