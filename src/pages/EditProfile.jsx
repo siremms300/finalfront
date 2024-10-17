@@ -29,7 +29,7 @@ const EditProfile = () => {
     //     queryKey: ["profile"],
     //     queryFn: async () => {
     //         const response = await axios.get(
-    //             `http://195.35.25.14/api/v1/users/${id}`
+    //             `http://localhost:3000/api/v1/users/${id}`
     //         );
     //         return response.data;
     //     },
@@ -61,7 +61,7 @@ const EditProfile = () => {
 
             
             const response = await axios.patch(
-                `http://195.35.25.14/api/v1/users`,
+                `http://localhost:3000/api/v1/users`,
  
                 updateUser,
                 {
