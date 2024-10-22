@@ -21,7 +21,7 @@ const Recruiter = () => {
         queryFn: async () => {
             const response = await axios.get(
 
-                `http://localhost:3000/api/v1/application/recruiter-schools`, // Update to reflect schools
+                `http://195.35.25.14:3000/api/v1/application/recruiter-schools`, // Update to reflect schools
 
                 {
                     withCredentials: true,
@@ -55,7 +55,7 @@ const Recruiter = () => {
         const newStatus = { recruiterId, status: "accepted" };
         updateSchoolStatusMutation.mutate({
             body: newStatus,
-            url: `http://localhost:3000/api/v1/application/${id}`, // Update to reflect schools
+            url: `http://195.35.25.14:3000/api/v1/application/${id}`, // Update to reflect schools
         });
     };
 
@@ -63,7 +63,7 @@ const Recruiter = () => {
         const newStatus = { recruiterId, status: "rejected" };
         updateSchoolStatusMutation.mutate({
             body: newStatus,
-            url: `http://localhost:3000/api/v1/application/${id}`, // Update to reflect schools
+            url: `http://195.35.25.14:3000/api/v1/application/${id}`, // Update to reflect schools
         });
     };
 
