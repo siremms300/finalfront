@@ -26,7 +26,7 @@ const ManageJobs = () => {
         queryFn: () =>
             getAllHandler(
 
-                `http://195.35.25.14:3000/api/v1/jobs/my-jobs`
+                `http://localhost:3000/api/v1/jobs/my-jobs`
 
             ),
     });
@@ -50,14 +50,14 @@ const ManageJobs = () => {
     const deleteJobHandler = async (id) => {
         try {
             const response = await axios.delete(
-                `http://195.35.25.14:3000/api/v1/jobs/${id}`,
+                `http://localhost:3000/api/v1/jobs/${id}`,
                 { withCredentials: true }
             );
 
             // const updateJobs = jobs?.result?.filter((job) => job._id !== id);
             // setJobs(updateJobs);
             // handleJobFetch(
-            //     `http://195.35.25.14:3000/api/v1/jobs?page=1`
+            //     `http://localhost:3000/api/v1/jobs?page=1`
             // );
             refetch();
             Swal.fire({

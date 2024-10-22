@@ -28,7 +28,7 @@
 //         queryKey: ["job"],
 //         queryFn: () =>
 //             getSingleHandler(
-//                 `http://195.35.25.14:3000/api/v1/schools/${id}`
+//                 `http://localhost:3000/api/v1/schools/${id}`
 //             ),
 //     });
 
@@ -128,7 +128,7 @@ const School = () => {
     } = useQuery({
         queryKey: ["school", id],
 
-        queryFn: () => getSingleHandler(`http://195.35.25.14:3000/api/v1/schools/${id}`),
+        queryFn: () => getSingleHandler(`http://localhost:3000/api/v1/schools/${id}`),
 
     });
 
