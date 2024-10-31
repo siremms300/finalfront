@@ -37,7 +37,7 @@ const SchoolContext = ({ children }) => {
 
 
     useEffect(() => {
-        handleSchoolFetch(`http://localhost:3000/api/v1/schools?page=1`);
+        handleSchoolFetch(`http://195.35.25.14/api/v1/schools?page=1`);
 
         setIsInitialLoad(false); // Mark the initial load as completed
     }, []);
@@ -102,7 +102,7 @@ export { useSchoolContext, SchoolContext };
 
 //     useEffect(() => {
 //         handleSchoolFetch(
-//             `http://localhost:3000/api/v1/schools?page=1`
+//             `http://195.35.25.14/api/v1/schools?page=1`
 //         );
 //     }, []);
 
