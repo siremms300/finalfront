@@ -33,7 +33,7 @@ const Stats = () => {
         queryFn: () =>
             getAllHandler(
  
-                `http://localhost:3000/api/v1/admin/stats`
+                `${import.meta.env.VITE_API_BASE_URL}/admin/stats`
  
             ),
     });

@@ -14,7 +14,7 @@ const UserContext = ({ children }) => {
         try {
             const response = await axios.get(
 
-                `http://localhost:3000/api/v1/auth/me`,
+                `${import.meta.env.VITE_API_BASE_URL}/auth/me`,
 
                 { withCredentials: true }
             );
@@ -31,7 +31,7 @@ const UserContext = ({ children }) => {
         try {
             await axios.post(
 
-                `http://localhost:3000/api/v1/auth/logout`,
+                `${import.meta.env.VITE_API_BASE_URL}/auth/logout`,
                 {},
                 { withCredentials: true }
             );
@@ -40,7 +40,7 @@ const UserContext = ({ children }) => {
             console.error("Logout failed:", error);
         }
     };
-
+    
     useEffect(() => {
         handleFetchMe();
     }, []);

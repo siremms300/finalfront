@@ -21,7 +21,7 @@ const ManageUsers = () => {
         queryKey: ["users"],
         queryFn: () =>
  
-            getAllHandler(`http://localhost:3000/api/v1/users`),
+            getAllHandler(`${import.meta.env.VITE_API_BASE_URL}/users`),
  
     });
 
@@ -45,7 +45,7 @@ const ManageUsers = () => {
         const updateUser = { id, role };
         try {
             const response = await axios.patch(
-                `http://localhost:3000/api/v1/admin/update-role`,
+                `${import.meta.env.VITE_API_BASE_URL}/admin/update-role`,
                 updateUser,
                 { withCredentials: true }
             );

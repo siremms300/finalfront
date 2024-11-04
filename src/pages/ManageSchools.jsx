@@ -26,7 +26,7 @@ const ManageJobs = () => {
         queryFn: () =>
             getAllHandler(
 
-                `http://localhost:3000/api/v1/jobs/my-jobs`
+                `${import.meta.env.VITE_API_BASE_URL}/jobs/my-jobs`
 
             ),
     });
@@ -50,14 +50,14 @@ const ManageJobs = () => {
     const deleteJobHandler = async (id) => {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/api/v1/jobs/${id}`,
+                `${import.meta.env.VITE_API_BASE_URL}/jobs/${id}`,
                 { withCredentials: true }
             );
 
             // const updateJobs = jobs?.result?.filter((job) => job._id !== id);
             // setJobs(updateJobs);
             // handleJobFetch(
-            //     `http://localhost:3000/api/v1/jobs?page=1`
+            //     `${import.meta.env.VITE_API_BASE_URL}/jobs?page=1`
             // );
             refetch();
             Swal.fire({

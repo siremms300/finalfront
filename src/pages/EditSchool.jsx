@@ -39,7 +39,7 @@ const EditJob = () => {
         queryFn: () =>
             getSingleHandler(
  
-                `http://localhost:3000/api/v1/jobs/${id}`
+                `${import.meta.env.VITE_API_BASE_URL}/jobs/${id}`
  
             ),
     });
@@ -103,7 +103,7 @@ const EditJob = () => {
         // posting;
         updateJobMutation.mutate({
             body: updateJob,
-            url: `http://localhost:3000/api/v1/jobs/${id}`,
+            url: `${import.meta.env.VITE_API_BASE_URL}/jobs/${id}`,
         });
     };
     // const onSubmit = (data) => {

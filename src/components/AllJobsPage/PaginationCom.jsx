@@ -207,7 +207,7 @@ export default PaginationCom;
 //         // );
 //         // setItemOffset(newOffset);
 //         handleSchoolFetch(
-//             `http://localhost:3000/api/v1/schools?page=${
+//             `${import.meta.env.VITE_API_BASE_URL}/schools?page=${
 //                 e.selected + 1
 //             }&limit=5`
 //         );

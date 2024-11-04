@@ -56,7 +56,7 @@
 //     console.log(newSchool);
 //     try {
 //       const response = await axios.post(
-//         "http://localhost:3000/api/v1/schools", // Adjust the endpoint
+//         "${import.meta.env.VITE_API_BASE_URL}/schools", // Adjust the endpoint
 //         newSchool,
 //         {
 //           withCredentials: true,
@@ -119,7 +119,7 @@
 // //         // posting;
 // //         try {
 // //             const response = await axios.post(
-// //                 "http://localhost:3000/api/v1/jobs",
+// //                 "${import.meta.env.VITE_API_BASE_URL}/jobs",
 // //                 newJob,
 // //                 {
 // //                     withCredentials: true,
@@ -563,7 +563,7 @@ const AddSchool = () => {
       try {
 
         const response = await axios.post(
-          "http://localhost:3000/api/v1/schools", // Adjust the endpoint
+          `${import.meta.env.VITE_API_BASE_URL}/schools`, // Adjust the endpoint
 
           newSchool,
           {

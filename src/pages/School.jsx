@@ -28,7 +28,7 @@
 //         queryKey: ["job"],
 //         queryFn: () =>
 //             getSingleHandler(
-//                 `http://localhost:3000/api/v1/schools/${id}`
+//                 `${import.meta.env.VITE_API_BASE_URL}/schools/${id}`
 //             ),
 //     });
 
@@ -128,7 +128,7 @@ const School = () => {
     } = useQuery({
         queryKey: ["school", id],
 
-        queryFn: () => getSingleHandler(`http://localhost:3000/api/v1/schools/${id}`),
+        queryFn: () => getSingleHandler(`${import.meta.env.VITE_API_BASE_URL}/schools/${id}`),
 
     });
 

@@ -792,7 +792,7 @@ export default SearchAndFilter;
         
 
 
-//         const baseUrl = "http://localhost:3000/api/v1/schools?page=1&limit=5";
+//         const baseUrl = "${import.meta.env.VITE_API_BASE_URL}/schools?page=1&limit=5";
 //         let url = baseUrl;
 
 //         const queryParams = {};
@@ -1021,7 +1021,7 @@ export default SearchAndFilter;
 
 
 //     const handleSearch = () => {
-//         const baseUrl = "http://localhost:3000/api/v1/schools?page=1&limit=5";
+//         const baseUrl = "${import.meta.env.VITE_API_BASE_URL}/schools?page=1&limit=5";
 //         let url = baseUrl;
     
 //         // Construct query params
