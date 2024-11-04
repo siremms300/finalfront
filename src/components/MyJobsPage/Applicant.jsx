@@ -15,7 +15,7 @@ const Applicant = () => {
         queryKey: ["my-schools"],
         queryFn: async () => {
             const response = await axios.get(
-                `http://195.35.25.14:3000/api/v1/application/applicant-schools`,
+                `http://localhost:3000/api/v1/application/applicant-schools`,
                 { withCredentials: true }
             );
             return response?.data?.result;

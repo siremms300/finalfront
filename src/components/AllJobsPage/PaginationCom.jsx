@@ -207,7 +207,7 @@ export default PaginationCom;
 //         // );
 //         // setItemOffset(newOffset);
 //         handleSchoolFetch(
-//             `http://195.35.25.14:3000/api/v1/schools?page=${
+//             `http://localhost:3000/api/v1/schools?page=${
 //                 e.selected + 1
 //             }&limit=5`
 //         );
