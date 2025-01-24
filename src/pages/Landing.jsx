@@ -8,6 +8,7 @@ import HowWorks from "../components/Home Page/HowWorks";
 import Team from "../components/Home Page/Team";
 import Brands from "../components/Home Page/Brands";
 import Testimonial from "../components/Home Page/Testimonial";
+import styled from "styled-components";
 
 const Landing = () => {
     const navbarRef = useRef(null);
@@ -54,5 +55,8 @@ const Landing = () => {
         </>
     );
 };
+
+
+
 
 export default Landing;

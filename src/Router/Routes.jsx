@@ -39,13 +39,20 @@ const router = createBrowserRouter([
                 element: <Landing />,
             },
             {
+                // path: "all-schools",
+                // element: (
+                //     <CommonProtectRoute>
+                //         <SearchAndFilterContext> {/* Updated */}
+                //             <AllSchools />
+                //         </SearchAndFilterContext>
+                //     </CommonProtectRoute>
+                // ), 
+
                 path: "all-schools",
                 element: (
-                    <CommonProtectRoute>
-                        <SearchAndFilterContext> {/* Updated */}
-                            <AllSchools />
-                        </SearchAndFilterContext>
-                    </CommonProtectRoute>
+                    <SearchAndFilterContext>
+                        <AllSchools />
+                    </SearchAndFilterContext>
                 ),
             },
             {

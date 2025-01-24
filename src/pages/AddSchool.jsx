@@ -557,6 +557,14 @@ const AddSchool = () => {
         facilities: facilities, // School facilities
         contact: data?.contact, // Contact information
         scholarship: data?.scholarship, // Whether scholarships are available
+
+        // UPDATE 
+        // phone: data?.phone, // Phone number
+        // email: data?.email, // Email address
+        greScore: data?.greScore, // GRE score
+        satScore: data?.satScore, // SAT score
+        toeflScore: data?.toeflScore, // TOEFL score
+        studentAidAvailable: data?.studentAidAvailable, // Student aid availability
       };
       
       console.log(newSchool);
@@ -915,6 +923,190 @@ const AddSchool = () => {
                                     </span>
                                 )}
                             </div>
+
+
+
+
+
+
+
+                            {/* UPDATE   */} 
+
+
+                            {/* Add Phone Number */}
+                            {/* <div className="row">
+                                <label htmlFor="phone">Phone Number</label>
+                                <input
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                placeholder="Phone Number"
+                                {...register("phone", {
+                                    required: {
+                                    value: true,
+                                    message: "Phone Number is required",
+                                    },
+                                    pattern: {
+                                    value: /^[0-9+() -]{6,20}$/,
+                                    message: "Invalid phone number format",
+                                    },
+                                })}
+                                />
+                                {errors?.phone && (
+                                <span className="text-[10px] font-semibold text-red-600 mt-1 pl-1 tracking-wider">
+                                    {errors?.phone?.message}
+                                </span>
+                                )}
+                            </div> */}
+
+                            {/* Add Email Address */}
+                            {/* <div className="row">
+                                <label htmlFor="email">Email Address</label>
+                                <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email Address"
+                                {...register("email", {
+                                    required: {
+                                    value: true,
+                                    message: "Email Address is required",
+                                    },
+                                    pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: "Invalid email format",
+                                    },
+                                })}
+                                />
+                                {errors?.email && (
+                                <span className="text-[10px] font-semibold text-red-600 mt-1 pl-1 tracking-wider">
+                                    {errors?.email?.message}
+                                </span>
+                                )}
+                            </div> */}
+
+                            {/* Add GRE Score */}
+                            <div className="row">
+                                <label htmlFor="grescore">GRE Score</label>
+                                <input
+                                type="number"
+                                id="grescore"
+                                name="grescore"
+                                placeholder="GRE Score"
+                                {...register("grescore", {
+                                    required: {
+                                    value: true,
+                                    message: "GRE Score is required",
+                                    },
+                                    min: {
+                                    value: 260,
+                                    message: "GRE Score cannot be below 260",
+                                    },
+                                    max: {
+                                    value: 340,
+                                    message: "GRE Score cannot exceed 340",
+                                    },
+                                })}
+                                />
+                                {errors?.grescore && (
+                                <span className="text-[10px] font-semibold text-red-600 mt-1 pl-1 tracking-wider">
+                                    {errors?.grescore?.message}
+                                </span>
+                                )}
+                            </div>
+
+                            {/* Add SAT Score */}
+                            <div className="row">
+                                <label htmlFor="satscore">SAT Score</label>
+                                <input
+                                type="number"
+                                id="satscore"
+                                name="satscore"
+                                placeholder="SAT Score"
+                                {...register("satscore", {
+                                    required: {
+                                    value: true,
+                                    message: "SAT Score is required",
+                                    },
+                                    min: {
+                                    value: 400,
+                                    message: "SAT Score cannot be below 400",
+                                    },
+                                    max: {
+                                    value: 1600,
+                                    message: "SAT Score cannot exceed 1600",
+                                    },
+                                })}
+                                />
+                                {errors?.satscore && (
+                                <span className="text-[10px] font-semibold text-red-600 mt-1 pl-1 tracking-wider">
+                                    {errors?.satscore?.message}
+                                </span>
+                                )}
+                            </div>
+
+                            {/* Add TOEFL Score */}
+                            <div className="row">
+                                <label htmlFor="toeflscore">TOEFL Score</label>
+                                <input
+                                type="number"
+                                id="toeflscore"
+                                name="toeflscore"
+                                placeholder="TOEFL Score"
+                                {...register("toeflscore", {
+                                    required: {
+                                    value: true,
+                                    message: "TOEFL Score is required",
+                                    },
+                                    min: {
+                                    value: 0,
+                                    message: "TOEFL Score cannot be negative",
+                                    },
+                                    max: {
+                                    value: 120,
+                                    message: "TOEFL Score cannot exceed 120",
+                                    },
+                                })}
+                                />
+                                {errors?.toeflscore && (
+                                <span className="text-[10px] font-semibold text-red-600 mt-1 pl-1 tracking-wider">
+                                    {errors?.toeflscore?.message}
+                                </span>
+                                )}
+                            </div>
+
+                            {/* Add Student Aid Availability */}
+                            <div className="row">
+                                <label htmlFor="studentAid">Student Aid Available?</label>
+                                <select
+                                defaultValue={"none"}
+                                name="studentAid"
+                                id="studentAid"
+                                {...register("studentAid", {
+                                    required: {
+                                    value: true,
+                                    message: "Student Aid selection is required",
+                                    },
+                                })}
+                                >
+                                <option disabled value="none">
+                                    Select an option
+                                </option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                                </select>
+                                {errors?.studentAid && (
+                                <span className="text-[10px] font-semibold text-red-600 mt-1 pl-1 tracking-wider">
+                                    {errors?.studentAid?.message}
+                                </span>
+                                )}
+                            </div>
+
+
+
+
+
+                            
 
                             <div className="row flex justify-center w-full">
                                 <button

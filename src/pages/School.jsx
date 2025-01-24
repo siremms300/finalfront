@@ -189,10 +189,19 @@ const School = () => {
                     <h4 className="tuition">
                         Tuition: <span>{school?.tuition} USD</span>
                     </h4>
+                    {/* <div className="apply">
+                        <h3 className="sec-title">To Apply</h3>
+                        <p className="intro">Send your CV/Resume</p>
+                        <p className="info">Email: {school?.contact}</p>
+                    </div> */}
+
                     <div className="apply">
                         <h3 className="sec-title">To Apply</h3>
                         <p className="intro">Send your CV/Resume</p>
                         <p className="info">Email: {school?.contact}</p>
+                        <a href={`mailto:${school?.contact}`} className="apply-button">
+                            Apply Now
+                        </a>
                     </div>
                 </div>
             </Wrapper>
@@ -205,153 +214,291 @@ const School = () => {
 
 
 
+// const Wrapper = styled.section`
+//     padding: 2rem 0;
+//     max-width: 1000px;
+//     margin: 0 auto;
+//     margin-bottom: calc(20px + 1vw);
+//     width: 100%;
+
+//     .top-row {
+//         margin-bottom: calc(30px + 1vw);
+//     }
+//     .top-row .title {
+//         font-size: calc(14px + 1vw);
+//         text-align: center;
+//     }
+//     .top-row .company {
+//         font-size: calc(11px + 0.35vw);
+//         text-align: center;
+//         text-transform: capitalize;
+//         font-weight: 600;
+//         margin-top: 4px;
+//         opacity: 0.75;
+//     }
+//     .top-row .post-date {
+//         font-size: 11px;
+//         font-weight: 600;
+//         text-transform: capitalize;
+//         text-align: center;
+//         opacity: 0.75;
+//         margin-top: 8px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//     }
+//     .middle-row .description h3 {
+//         font-size: calc(14px + 0.15vw);
+//         font-weight: 600;
+//         text-transform: capitalize;
+//         opacity: 0.8;
+//         text-decoration: underline;
+//     }
+//     .middle-row .description p {
+//         margin-top: 6px;
+//         font-size: calc(12px + 0.15vw);
+//         font-weight: 400;
+//         opacity: 0.95;
+//         text-align: justify;
+//         line-height: 23px;
+//     }
+//     .middle-row .deadline {
+//         font-size: calc(13px + 0.1vw);
+//         font-weight: 600;
+//         opacity: 0.8;
+//         margin-top: calc(10px + 0.3vw);
+//     }
+//     .middle-row .vacancy {
+//         font-size: calc(13px + 0.1vw);
+//         font-weight: 600;
+//         opacity: 0.8;
+//         margin-top: 4px;
+//         margin-bottom: calc(10px + 0.3vw);
+//     }
+//     .middle-row .requirement {
+//         margin-bottom: calc(10px + 0.3vw);
+//     }
+//     .middle-row .requirement .sec-title {
+//         font-size: calc(14px + 0.15vw);
+//         font-weight: 600;
+//         text-transform: capitalize;
+//         opacity: 0.8;
+//         text-decoration: underline;
+//     }
+//     .middle-row .requirement p {
+//         margin-top: 6px;
+//         font-size: calc(12px + 0.15vw);
+//         font-weight: 400;
+//         opacity: 0.95;
+//         text-align: justify;
+//         line-height: 23px;
+//     }
+//     .middle-row .requirement ul {
+//         margin-top: 6px;
+//         list-style: circle;
+//         margin-left: calc(30px + 0.5vw);
+//     }
+//     .middle-row .requirement ul li {
+//         font-size: calc(12px + 0.15vw);
+//         font-weight: 400;
+//         opacity: 0.95;
+//         text-transform: capitalize;
+//         padding: 2px 0;
+//     }
+
+//     .middle-row .facility .sec-title {
+//         font-size: calc(14px + 0.15vw);
+//         font-weight: 600;
+//         text-transform: capitalize;
+//         opacity: 0.8;
+//         text-decoration: underline;
+//     }
+//     .middle-row .facility {
+//         margin-bottom: calc(10px + 0.3vw);
+//     }
+//     .middle-row .facility p {
+//         margin-top: 6px;
+//         font-size: calc(12px + 0.15vw);
+//         font-weight: 400;
+//         opacity: 0.95;
+//         text-align: justify;
+//         line-height: 23px;
+//     }
+//     .middle-row .facility ul {
+//         margin-top: 6px;
+//         list-style: circle;
+//         margin-left: calc(30px + 0.5vw);
+//     }
+//     .middle-row .facility ul li {
+//         font-size: calc(12px + 0.15vw);
+//         font-weight: 400;
+//         opacity: 0.95;
+//         text-transform: capitalize;
+//         padding: 2px 0;
+//     }
+//     .middle-row .salary {
+//         font-size: calc(14px + 0.1vw);
+//         font-weight: 600;
+//         opacity: 0.85;
+//         margin-bottom: calc(10px + 0.3vw);
+//     }
+//     .middle-row .apply h3 {
+//         font-size: calc(14px + 0.15vw);
+//         font-weight: 600;
+//         text-transform: capitalize;
+//         opacity: 0.8;
+//         text-decoration: underline;
+//     }
+//     .middle-row .apply p {
+//         margin-top: 6px;
+//         font-size: calc(12px + 0.15vw);
+//         font-weight: 400;
+//         opacity: 0.95;
+//     }
+//     .middle-row .apply p.intro {
+//         text-transform: capitalize;
+//     }
+//     .middle-row .apply p.info {
+//         font-weight: 600;
+//         opacity: 0.8;
+//     }
+// `;
+
+
 const Wrapper = styled.section`
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     max-width: 1000px;
     margin: 0 auto;
     margin-bottom: calc(20px + 1vw);
     width: 100%;
+    font-family: 'Poppins', sans-serif;
 
     .top-row {
         margin-bottom: calc(30px + 1vw);
+        text-align: center;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        padding: 2rem;
+        border-radius: 12px;
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .top-row .title {
-        font-size: calc(14px + 1vw);
-        text-align: center;
-    }
-    .top-row .company {
-        font-size: calc(11px + 0.35vw);
-        text-align: center;
-        text-transform: capitalize;
+        font-size: calc(20px + 1vw);
         font-weight: 600;
-        margin-top: 4px;
-        opacity: 0.75;
+        margin-bottom: 0.5rem;
+    }
+    .top-row .university {
+        font-size: calc(14px + 0.5vw);
+        font-weight: 500;
+        opacity: 0.9;
     }
     .top-row .post-date {
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: capitalize;
-        text-align: center;
-        opacity: 0.75;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.8;
         margin-top: 8px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
+    .middle-row {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+    }
     .middle-row .description h3 {
-        font-size: calc(14px + 0.15vw);
+        font-size: calc(18px + 0.15vw);
         font-weight: 600;
-        text-transform: capitalize;
-        opacity: 0.8;
-        text-decoration: underline;
+        color: #333;
+        margin-bottom: 1rem;
     }
     .middle-row .description p {
-        margin-top: 6px;
-        font-size: calc(12px + 0.15vw);
-        font-weight: 400;
-        opacity: 0.95;
-        text-align: justify;
-        line-height: 23px;
-    }
-    .middle-row .deadline {
-        font-size: calc(13px + 0.1vw);
-        font-weight: 600;
-        opacity: 0.8;
-        margin-top: calc(10px + 0.3vw);
-    }
-    .middle-row .vacancy {
-        font-size: calc(13px + 0.1vw);
-        font-weight: 600;
-        opacity: 0.8;
-        margin-top: 4px;
-        margin-bottom: calc(10px + 0.3vw);
-    }
-    .middle-row .requirement {
-        margin-bottom: calc(10px + 0.3vw);
-    }
-    .middle-row .requirement .sec-title {
         font-size: calc(14px + 0.15vw);
+        line-height: 1.6;
+        color: #555;
+    }
+    .middle-row .deadline,
+    .middle-row .vacancy,
+    .middle-row .tuition {
+        font-size: calc(16px + 0.1vw);
         font-weight: 600;
-        text-transform: capitalize;
-        opacity: 0.8;
-        text-decoration: underline;
+        color: #333;
+        margin: 1.5rem 0;
     }
-    .middle-row .requirement p {
-        margin-top: 6px;
-        font-size: calc(12px + 0.15vw);
-        font-weight: 400;
-        opacity: 0.95;
-        text-align: justify;
-        line-height: 23px;
+    .middle-row .deadline span,
+    .middle-row .vacancy span,
+    .middle-row .tuition span {
+        color: #2575fc;
     }
-    .middle-row .requirement ul {
-        margin-top: 6px;
-        list-style: circle;
-        margin-left: calc(30px + 0.5vw);
-    }
-    .middle-row .requirement ul li {
-        font-size: calc(12px + 0.15vw);
-        font-weight: 400;
-        opacity: 0.95;
-        text-transform: capitalize;
-        padding: 2px 0;
-    }
-
-    .middle-row .facility .sec-title {
-        font-size: calc(14px + 0.15vw);
-        font-weight: 600;
-        text-transform: capitalize;
-        opacity: 0.8;
-        text-decoration: underline;
-    }
+    .middle-row .requirement,
     .middle-row .facility {
-        margin-bottom: calc(10px + 0.3vw);
+        margin-bottom: 2rem;
     }
-    .middle-row .facility p {
-        margin-top: 6px;
-        font-size: calc(12px + 0.15vw);
-        font-weight: 400;
-        opacity: 0.95;
-        text-align: justify;
-        line-height: 23px;
-    }
-    .middle-row .facility ul {
-        margin-top: 6px;
-        list-style: circle;
-        margin-left: calc(30px + 0.5vw);
-    }
-    .middle-row .facility ul li {
-        font-size: calc(12px + 0.15vw);
-        font-weight: 400;
-        opacity: 0.95;
-        text-transform: capitalize;
-        padding: 2px 0;
-    }
-    .middle-row .salary {
-        font-size: calc(14px + 0.1vw);
+    .middle-row .requirement h3,
+    .middle-row .facility h3 {
+        font-size: calc(18px + 0.15vw);
         font-weight: 600;
-        opacity: 0.85;
-        margin-bottom: calc(10px + 0.3vw);
+        color: #333;
+        margin-bottom: 1rem;
+    }
+    .middle-row .requirement ul,
+    .middle-row .facility ul {
+        list-style: none;
+        padding-left: 1.5rem;
+    }
+    .middle-row .requirement ul li,
+    .middle-row .facility ul li {
+        font-size: calc(14px + 0.15vw);
+        color: #555;
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+    .middle-row .requirement ul li::before,
+    .middle-row .facility ul li::before {
+        content: "•";
+        color: #2575fc;
+        font-size: 1.2rem;
+        position: absolute;
+        left: -1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .middle-row .apply {
+        margin-top: 2rem;
     }
     .middle-row .apply h3 {
-        font-size: calc(14px + 0.15vw);
+        font-size: calc(18px + 0.15vw);
         font-weight: 600;
-        text-transform: capitalize;
-        opacity: 0.8;
-        text-decoration: underline;
+        color: #333;
+        margin-bottom: 1rem;
     }
     .middle-row .apply p {
-        margin-top: 6px;
-        font-size: calc(12px + 0.15vw);
-        font-weight: 400;
-        opacity: 0.95;
-    }
-    .middle-row .apply p.intro {
-        text-transform: capitalize;
+        font-size: calc(14px + 0.15vw);
+        color: #555;
+        margin-bottom: 0.5rem;
     }
     .middle-row .apply p.info {
         font-weight: 600;
-        opacity: 0.8;
+        color: #2575fc;
+    }
+
+    .apply-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .apply-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 `;
 
