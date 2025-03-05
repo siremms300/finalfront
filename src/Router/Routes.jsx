@@ -39,13 +39,20 @@ const router = createBrowserRouter([
                 element: <Landing />,
             },
             {
+                // path: "all-schools",
+                // element: (
+                //     <CommonProtectRoute>
+                //         <SearchAndFilterContext> {/* Updated */}
+                //             <AllSchools />
+                //         </SearchAndFilterContext>
+                //     </CommonProtectRoute>
+                // ), 
+
                 path: "all-schools",
                 element: (
-                    <CommonProtectRoute>
-                        <SearchAndFilterContext> {/* Updated */}
-                            <AllSchools />
-                        </SearchAndFilterContext>
-                    </CommonProtectRoute>
+                    <SearchAndFilterContext>
+                        <AllSchools />
+                    </SearchAndFilterContext>
                 ),
             },
             {
@@ -147,6 +154,178 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { createBrowserRouter } from "react-router-dom";
+// import HomeLayout from "../Layout/HomeLayout";
+// import DashboardLayout from "../Layout/DashboardLayout";
+
+// // Pages
+// import {
+//     Register,
+//     Login,
+//     Landing,
+//     Error,
+//     AllSchools,
+//     Stats,
+//     Profile,
+//     Admin,
+//     EditSchool,
+//     AddSchool,
+//     ManageSchools,
+//     School,
+//     MySchools,
+//     EditProfile,
+//     ManageUsers,
+// } from "../pages";
+
+// import { SearchAndFilterContext } from "../context/SearchAndFilterContext"; // Updated context
+
+// import CommonProtectRoute from "../components/shared/CommonProtectRoute";
+// import ProtectAdminRoute from "../components/shared/ProtectAdminRoute";
+// import RecruiterRoute from "../components/shared/RecruiterRoute";
+
+// const router = createBrowserRouter([
+//     {
+//         path: "/",
+//         element: <HomeLayout></HomeLayout>,
+//         errorElement: <Error />,
+//         children: [
+//             {
+//                 index: true,
+//                 element: <Landing />,
+//             },
+//             {
+//                 path: "all-schools",
+//                 element: (
+//                     <CommonProtectRoute>
+//                         <SearchAndFilterContext> {/* Updated */}
+//                             <AllSchools />
+//                         </SearchAndFilterContext>
+//                     </CommonProtectRoute>
+//                 ),
+//             },
+//             {
+//                 path: "school/:id",
+//                 element: (
+//                     <CommonProtectRoute>
+//                         <SearchAndFilterContext> {/* Updated */}
+//                             <School />
+//                         </SearchAndFilterContext>
+//                     </CommonProtectRoute>
+//                 ),
+//             },
+//             {
+//                 path: "register",
+//                 element: <Register></Register>,
+//             },
+//             {
+//                 path: "login",
+//                 element: <Login></Login>,
+//             },
+//             {
+//                 path: "dashboard",
+//                 element: (
+//                     <CommonProtectRoute>
+//                         <SearchAndFilterContext> {/* Updated */}
+//                             <DashboardLayout></DashboardLayout>
+//                         </SearchAndFilterContext>
+//                     </CommonProtectRoute>
+//                 ),
+//                 children: [
+//                     {
+//                         index: true,
+//                         element: <Profile />,
+//                     },
+//                     {
+//                         path: "edit-profile/:id",
+//                         element: <EditProfile />,
+//                     },
+//                     {
+//                         path: "stats",
+//                         element: (
+//                             <ProtectAdminRoute>
+//                                 <Stats />
+//                             </ProtectAdminRoute>
+//                         ),
+//                     },
+//                     {
+//                         path: "add-school",
+//                         element: (
+//                             <RecruiterRoute>
+//                                 <AddSchool />
+//                             </RecruiterRoute>
+//                         ),
+//                     },
+//                     {
+//                         path: "manage-schools",
+//                         element: (
+//                             <RecruiterRoute>
+//                                 <ManageSchools />
+//                             </RecruiterRoute>
+//                         ),
+//                     },
+//                     {
+//                         path: "manage-users",
+//                         element: (
+//                             <ProtectAdminRoute>
+//                                 <ManageUsers />
+//                             </ProtectAdminRoute>
+//                         ),
+//                     },
+//                     {
+//                         path: "admin",
+//                         element: (
+//                             <ProtectAdminRoute>
+//                                 <Admin />
+//                             </ProtectAdminRoute>
+//                         ),
+//                     },
+//                     {
+//                         path: "edit-school/:id",
+//                         element: (
+//                             <RecruiterRoute>
+//                                 <EditSchool />
+//                             </RecruiterRoute>
+//                         ),
+//                     },
+//                     {
+//                         path: "my-schools",
+//                         element: (
+//                             <CommonProtectRoute>
+//                                 <MySchools />
+//                             </CommonProtectRoute>
+//                         ),
+//                     },
+//                 ],
+//             },
+//         ],
+//     },
+// ]);
+
+// export default router;
 
 
 

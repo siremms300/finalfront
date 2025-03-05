@@ -1,14 +1,15 @@
  
-// THE CODE BELOW WORKS. THE ONLY THING IS THAT ITS NOT MOBILE RESPONSIVE 
 
 import React, { useState } from "react";
 import styled from "styled-components";
 import { School_Status, Course_Type, School_Sort_By } from "../../utils/SchoolData";
 import { CiFilter, CiSearch } from "react-icons/ci";
 import { useSearchAndFilterContext } from "../../context/SearchAndFilterContext"; // Updated context
+// import {useUserContext} from "../../context/UserContext"   //NEW CONTEXT 
 
 const SearchAndFilter = () => {
     const { handleSearchAndFilter, hasSearched } = useSearchAndFilterContext(); // Updated
+    // const { user, userLoading } = useUserContext(); // Get user and loading state from UserContext
 
     const [courseTypeFilter, setCourseTypeFilter] = useState("");
     const [schoolStatusFilter, setSchoolStatusFilter] = useState("");
@@ -18,7 +19,22 @@ const SearchAndFilter = () => {
     const [maxTuition, setMaxTuition] = useState("");
     const [hasScholarship, setHasScholarship] = useState("");
 
+    const [email, setEmail] = useState(""); // New field
+    const [phone, setPhone] = useState(""); // New field
+
     const handleSearch = () => {
+// //////////////// USER LOGIN CHECK
+        // if (userLoading) {
+        //     setErrorMessage("Checking authentication status...");
+        //     return;
+        // }
+
+        // if (!user) {
+        //     setErrorMessage("Please login to find courses.");
+        //     return;
+        // }
+// ////////////// END OF USER LOGIN CHECK 
+
         const searchParams = {};
 
         if (searchQuery.trim()) searchParams.search = searchQuery;
@@ -27,14 +43,15 @@ const SearchAndFilter = () => {
         if (sortBy) searchParams.sort = sortBy;
         if (minTuition) searchParams.minTuition = minTuition;
         if (maxTuition) searchParams.maxTuition = maxTuition;
-        // if (hasScholarship) searchParams.scholarship = hasScholarship;
 
-         // Ensure the scholarship filter is applied as a boolean
         if (hasScholarship === "true") searchParams.scholarship = true;
         else if (hasScholarship === "false") searchParams.scholarship = false;
 
+        // logggggggggg
+        const additionalData = { email, phone }; // Log data
+
         if (Object.keys(searchParams).length > 0) {
-            handleSearchAndFilter(searchParams);
+            handleSearchAndFilter(searchParams, additionalData);
         } else {
             alert("Please provide at least one search query or filter.");
         }
@@ -43,281 +60,449 @@ const SearchAndFilter = () => {
     return (
         <Wrapper>
             <form className="form" onSubmit={(e) => e.preventDefault()}>
-                <div className="search-container">
-                    <div className="search-row">
+                <h2 className="form-title">Fill Program Form</h2> 
+
+                 {/* Email Field */}
+                 <div className="form-group">
+                    <label htmlFor="email" className="form-label">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        className="form-input"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+
+                {/* Phone Field */}
+                <div className="form-group">
+                    <label htmlFor="phone" className="form-label">
+                        Phone Number
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        className="form-input"
+                        placeholder="Enter your phone number"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                    />
+                </div>
+
+
+                {/* Search Bar */}
+                <div className="form-group">
+                    <label htmlFor="search" className="form-label">
+                        Search by Course Title
+                    </label>
+                    <div className="input-icon">
                         <input
                             type="text"
-                            className="search"
-                            placeholder="Search by course title"
+                            id="search"
+                            className="form-input"
+                            placeholder="Enter course title"
                             onChange={(e) => setSearchQuery(e.target.value)}
                             value={searchQuery}
                         />
-                        <span className="icon">
+                        {/* <span className="icon">
                             <CiSearch />
-                        </span>
+                        </span> */}
                     </div>
-                    <button onClick={handleSearch} className="search-btn">
-                        Search
-                    </button>
                 </div>
 
-                <div className="filter">
-                    <div className="filter-group">
-                        <span className="filter-label">Course Type</span>
-                        <select
-                            className="filter-select"
-                            onChange={(e) => setCourseTypeFilter(e.target.value)}
-                            value={courseTypeFilter}
-                        >
-                            <option value="">Select</option>
-                            {Course_Type?.map((type, i) => (
-                                <option key={i + type} value={type}>
-                                    {type}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div className="filter-group">
-                        <span className="filter-label">Degree Type</span>
-                        <select
-                            className="filter-select"
-                            onChange={(e) => setSchoolStatusFilter(e.target.value)}
-                            value={schoolStatusFilter}
-                        >
-                            <option value="">Select</option>
-                            {School_Status?.map((status, i) => (
-                                <option key={i + status} value={status}>
-                                    {status}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div className="filter-group">
-                        <span className="filter-label">Sort By</span>
-                        <select
-                            className="filter-select"
-                            onChange={(e) => setSortBy(e.target.value)}
-                            value={sortBy}
-                        >
-                            <option value="">Select</option>
-                            {School_Sort_By?.map((sort, i) => (
-                                <option key={i + sort} value={sort}>
-                                    {sort}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div className="filter-group">
-                        <span className="filter-label">Min Tuition</span>
-                        <input
-                            type="number"
-                            placeholder="Min"
-                            value={minTuition}
-                            onChange={(e) => setMinTuition(e.target.value)}
-                            className="tuition-input"
-                        />
-                    </div>
-                    <div className="filter-group">
-                        <span className="filter-label">Max Tuition</span>
-                        <input
-                            type="number"
-                            placeholder="Max"
-                            value={maxTuition}
-                            onChange={(e) => setMaxTuition(e.target.value)}
-                            className="tuition-input"
-                        />
-                    </div>
-
-
-
-
-
-
-
-
-                    <div className="filter-group">
-                        <span className="filter-label">Scholarship</span>
-                        <select
-                            className="filter-select"
-                            onChange={(e) => setHasScholarship(e.target.value)}
-                            value={hasScholarship}
-                        >
-                            <option value="">Select</option>
-                            <option value="true">Yes</option>
-                            <option value="false">No</option>
-                        </select>
-                    </div>
-
-
-
-
-
+                {/* Filters */}
+                <div className="form-group">
+                    <label htmlFor="courseType" className="form-label">
+                        Course Type
+                    </label>
+                    <select
+                        id="courseType"
+                        className="form-select"
+                        onChange={(e) => setCourseTypeFilter(e.target.value)}
+                        value={courseTypeFilter}
+                    >
+                        <option value="">Select</option>
+                        {Course_Type.map((type, i) => (
+                            <option key={i + type} value={type}>
+                                {type}
+                            </option>
+                        ))}
+                    </select>
                 </div>
+
+                <div className="form-group">
+                    <label htmlFor="degreeType" className="form-label">
+                        Degree Type
+                    </label>
+                    <select
+                        id="degreeType"
+                        className="form-select"
+                        onChange={(e) => setSchoolStatusFilter(e.target.value)}
+                        value={schoolStatusFilter}
+                    >
+                        <option value="">Select</option>
+                        {School_Status.map((status, i) => (
+                            <option key={i + status} value={status}>
+                                {status}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="sortBy" className="form-label">
+                        Sort By
+                    </label>
+                    <select
+                        id="sortBy"
+                        className="form-select"
+                        onChange={(e) => setSortBy(e.target.value)}
+                        value={sortBy}
+                    >
+                        <option value="">Select</option>
+                        {School_Sort_By.map((sort, i) => (
+                            <option key={i + sort} value={sort}>
+                                {sort}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="minTuition" className="form-label">
+                        Min Tuition
+                    </label>
+                    <input
+                        type="number"
+                        id="minTuition"
+                        className="form-input"
+                        placeholder="Enter minimum"
+                        value={minTuition}
+                        onChange={(e) => setMinTuition(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="maxTuition" className="form-label">
+                        Max Tuition
+                    </label>
+                    <input
+                        type="number"
+                        id="maxTuition"
+                        className="form-input"
+                        placeholder="Enter maximum"
+                        value={maxTuition}
+                        onChange={(e) => setMaxTuition(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="scholarship" className="form-label">
+                        Scholarship
+                    </label>
+                    <select
+                        id="scholarship"
+                        className="form-select"
+                        onChange={(e) => setHasScholarship(e.target.value)}
+                        value={hasScholarship}
+                    >
+                        <option value="">Select</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+
+                <button onClick={handleSearch} className="form-btn">
+                    Get Program
+                </button>
             </form>
         </Wrapper>
     );
 };
 
-
-
-
-// background-color: lightcyan;
-// background-color: #f8f4f4;
-    //background-color: rgba(135, 206, 235, 0.2); /* light sky blue with 20% opacity */
+    // background-color: #e3edf7;
 const Wrapper = styled.div`
     background-color: #f8f4f4;
     padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 500px;
+    margin: auto;
 
     .form {
-        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 1rem;
     }
 
-    .search-container {
+    .form-title {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+        flex-direction: column;
     }
 
-    .search-row {
-        flex-grow: 1;
-        position: relative;
+    .form-label {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 0.4rem;
     }
 
-    .search {
-        width: 100%;
-        padding: 7px 10px;
-        border: 1px solid #ddd;
+    .form-input,
+    .form-select {
+        padding: 8px;
+        border: 1px solid #ccc;
         border-radius: 4px;
         font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+        outline: none;
+        border-color: #1a73e8;
+    }
+
+    .input-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-input {
+        padding-right: 30px;
     }
 
     .icon {
         position: absolute;
         right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: #666;
     }
 
-    .search-btn {
+    .form-btn {
+        padding: 10px;
         background-color: #1a73e8;
-        color: #fff;
-        padding: 7px 10px;
+        color: white;
         border: none;
         border-radius: 4px;
+        font-size: 1rem;
         cursor: pointer;
         transition: background-color 0.3s;
     }
 
-    .search-btn:hover {
+    .form-btn:hover {
         background-color: #135ab5;
     }
 
-    .filter {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: space-between;
-    }
-
-    .filter-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        width: 100%;
-        max-width: 180px;
-    }
-
-    .filter-label {
-        font-size: 0.875rem;
-        color: #333;
-    }
-
-    .filter-select {
-        padding: 4px 6px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        font-size: 0.9rem;
-        transition: border-color 0.3s;
-        
-        width: 100%; /* Ensure dropdown matches input width */
-        box-sizing: border-box; /* Ensure padding doesn't affect width */
-    }
-
-    .filter-select:hover {
-        border-color: #888;
-    } 
-
-
-    
-
-    .tuition-input {
-        padding: 4px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        font-size: 0.9rem;
-        transition: border-color 0.3s;
-    }
-
-    .tuition-input:hover {
-        border-color: #888;
-    }
-
-    /* Responsive design */
     @media (max-width: 768px) {
-        .search-container {
-            flex-direction: row;
-            gap: 1rem;
-        }
-
-        .filter {
-            flex-direction: row;
-        } 
-
-    } 
-
-    @media (max-width: 600px) {
-        .search-container {
-            flex-direction: row;
-            gap: 0.3rem;
-        }
-
-        .filter {
-            flex-direction: row;
-        }
-
-        .search-row, 
-        .filter-group {
-            width: 45%; /* Adjust width to fit two input fields per row */
+        .form-group {
+            width: 100%;
         }
     }
-`; 
+`;
+
+export default SearchAndFilter;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // THE CODE BELOW WORKS. THE ONLY THING IS THAT ITS NOT MOBILE RESPONSIVE 
+
+// import React, { useState } from "react";
+// import styled from "styled-components";
+// import { School_Status, Course_Type, School_Sort_By } from "../../utils/SchoolData";
+// import { CiFilter, CiSearch } from "react-icons/ci";
+// import { useSearchAndFilterContext } from "../../context/SearchAndFilterContext"; // Updated context
+
+// const SearchAndFilter = () => {
+//     const { handleSearchAndFilter, hasSearched } = useSearchAndFilterContext(); // Updated
+
+//     const [courseTypeFilter, setCourseTypeFilter] = useState("");
+//     const [schoolStatusFilter, setSchoolStatusFilter] = useState("");
+//     const [sortBy, setSortBy] = useState("");
+//     const [searchQuery, setSearchQuery] = useState("");
+//     const [minTuition, setMinTuition] = useState("");
+//     const [maxTuition, setMaxTuition] = useState("");
+//     const [hasScholarship, setHasScholarship] = useState("");
+
+//     const handleSearch = () => {
+//         const searchParams = {};
+
+//         if (searchQuery.trim()) searchParams.search = searchQuery;
+//         if (courseTypeFilter) searchParams.courseType = courseTypeFilter;
+//         if (schoolStatusFilter) searchParams.schoolStatus = schoolStatusFilter;
+//         if (sortBy) searchParams.sort = sortBy;
+//         if (minTuition) searchParams.minTuition = minTuition;
+//         if (maxTuition) searchParams.maxTuition = maxTuition;
+//         // if (hasScholarship) searchParams.scholarship = hasScholarship;
+
+//          // Ensure the scholarship filter is applied as a boolean
+//         if (hasScholarship === "true") searchParams.scholarship = true;
+//         else if (hasScholarship === "false") searchParams.scholarship = false;
+
+//         if (Object.keys(searchParams).length > 0) {
+//             handleSearchAndFilter(searchParams);
+//         } else {
+//             alert("Please provide at least one search query or filter.");
+//         }
+//     };
+
+//     return (
+//         <Wrapper>
+//             <form className="form" onSubmit={(e) => e.preventDefault()}>
+//                 <div className="search-container">
+//                     <div className="search-row">
+//                         <input
+//                             type="text"
+//                             className="search"
+//                             placeholder="Search by course title"
+//                             onChange={(e) => setSearchQuery(e.target.value)}
+//                             value={searchQuery}
+//                         />
+//                         <span className="icon">
+//                             <CiSearch />
+//                         </span>
+//                     </div>
+//                     <button onClick={handleSearch} className="search-btn">
+//                         Search
+//                     </button>
+//                 </div>
+
+//                 <div className="filter">
+//                     <div className="filter-group">
+//                         <span className="filter-label">Course Type</span>
+//                         <select
+//                             className="filter-select"
+//                             onChange={(e) => setCourseTypeFilter(e.target.value)}
+//                             value={courseTypeFilter}
+//                         >
+//                             <option value="">Select</option>
+//                             {Course_Type?.map((type, i) => (
+//                                 <option key={i + type} value={type}>
+//                                     {type}
+//                                 </option>
+//                             ))}
+//                         </select>
+//                     </div>
+
+//                     <div className="filter-group">
+//                         <span className="filter-label">Degree Type</span>
+//                         <select
+//                             className="filter-select"
+//                             onChange={(e) => setSchoolStatusFilter(e.target.value)}
+//                             value={schoolStatusFilter}
+//                         >
+//                             <option value="">Select</option>
+//                             {School_Status?.map((status, i) => (
+//                                 <option key={i + status} value={status}>
+//                                     {status}
+//                                 </option>
+//                             ))}
+//                         </select>
+//                     </div>
+
+//                     <div className="filter-group">
+//                         <span className="filter-label">Sort By</span>
+//                         <select
+//                             className="filter-select"
+//                             onChange={(e) => setSortBy(e.target.value)}
+//                             value={sortBy}
+//                         >
+//                             <option value="">Select</option>
+//                             {School_Sort_By?.map((sort, i) => (
+//                                 <option key={i + sort} value={sort}>
+//                                     {sort}
+//                                 </option>
+//                             ))}
+//                         </select>
+//                     </div>
+
+//                     <div className="filter-group">
+//                         <span className="filter-label">Min Tuition</span>
+//                         <input
+//                             type="number"
+//                             placeholder="Min"
+//                             value={minTuition}
+//                             onChange={(e) => setMinTuition(e.target.value)}
+//                             className="tuition-input"
+//                         />
+//                     </div>
+//                     <div className="filter-group">
+//                         <span className="filter-label">Max Tuition</span>
+//                         <input
+//                             type="number"
+//                             placeholder="Max"
+//                             value={maxTuition}
+//                             onChange={(e) => setMaxTuition(e.target.value)}
+//                             className="tuition-input"
+//                         />
+//                     </div>
+
+
+
+
+
+
+
+
+//                     <div className="filter-group">
+//                         <span className="filter-label">Scholarship</span>
+//                         <select
+//                             className="filter-select"
+//                             onChange={(e) => setHasScholarship(e.target.value)}
+//                             value={hasScholarship}
+//                         >
+//                             <option value="">Select</option>
+//                             <option value="true">Yes</option>
+//                             <option value="false">No</option>
+//                         </select>
+//                     </div>
+
+
+
+
+
+//                 </div>
+//             </form>
+//         </Wrapper>
+//     );
+// };
+
+
+
+
+// // background-color: lightcyan;
+// // background-color: #f8f4f4;
+//     //background-color: rgba(135, 206, 235, 0.2); /* light sky blue with 20% opacity */
 // const Wrapper = styled.div`
-//     background-color: rgba(135, 206, 235, 0.2); /* light sky blue with 20% opacity */
+//     background-color: #f8f4f4;
 //     padding: 1.5rem;
 //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 //     border-radius: 8px;
 //     display: flex;
 //     flex-direction: column;
 //     align-items: center;
-//     gap: 1rem;
 
 //     .form {
 //         width: 100%;
@@ -328,18 +513,14 @@ const Wrapper = styled.div`
 
 //     .search-container {
 //         display: flex;
-//         flex-direction: row;
 //         justify-content: space-between;
 //         align-items: center;
 //         width: 100%;
-//         flex-wrap: wrap; /* Allow wrapping on smaller screens */
-//         gap: 1rem;
 //     }
 
 //     .search-row {
 //         flex-grow: 1;
 //         position: relative;
-//         min-width: 150px; /* Minimum width to prevent shrinking too much */
 //     }
 
 //     .search {
@@ -367,7 +548,6 @@ const Wrapper = styled.div`
 //         border-radius: 4px;
 //         cursor: pointer;
 //         transition: background-color 0.3s;
-//         white-space: nowrap; /* Prevent button text from breaking */
 //     }
 
 //     .search-btn:hover {
@@ -376,20 +556,17 @@ const Wrapper = styled.div`
 
 //     .filter {
 //         display: flex;
-//         flex-direction: row;
-//         flex-wrap: wrap; /* Allow filter groups to wrap */
+//         flex-wrap: wrap;
 //         gap: 1rem;
-//         justify-content: flex-start; /* Adjust position of filter groups */
-//         width: 100%;
+//         justify-content: space-between;
 //     }
 
 //     .filter-group {
 //         display: flex;
 //         flex-direction: column;
 //         gap: 0.2rem;
-//         min-width: 120px;
+//         width: 100%;
 //         max-width: 180px;
-//         flex-grow: 1; /* Allow each filter group to grow */
 //     }
 
 //     .filter-label {
@@ -397,17 +574,33 @@ const Wrapper = styled.div`
 //         color: #333;
 //     }
 
-//     .filter-select,
-//     .tuition-input {
+//     .filter-select {
 //         padding: 4px 6px;
 //         border-radius: 4px;
 //         border: 1px solid #ccc;
 //         background-color: #fff;
 //         font-size: 0.9rem;
 //         transition: border-color 0.3s;
+        
+//         width: 100%; /* Ensure dropdown matches input width */
+//         box-sizing: border-box; /* Ensure padding doesn't affect width */
 //     }
 
-//     .filter-select:hover,
+//     .filter-select:hover {
+//         border-color: #888;
+//     } 
+
+
+    
+
+//     .tuition-input {
+//         padding: 4px;
+//         border-radius: 4px;
+//         border: 1px solid #ccc;
+//         font-size: 0.9rem;
+//         transition: border-color 0.3s;
+//     }
+
 //     .tuition-input:hover {
 //         border-color: #888;
 //     }
@@ -417,50 +610,185 @@ const Wrapper = styled.div`
 //         .search-container {
 //             flex-direction: row;
 //             gap: 1rem;
-//             flex-wrap: wrap;
-//         }
-
-//         .search-row {
-//             width: 100%; /* Ensure search field takes full width on smaller screens */
 //         }
 
 //         .filter {
 //             flex-direction: row;
-//             flex-wrap: wrap;
-//             justify-content: space-between; /* Spread filter groups evenly */
-//             gap: 1rem;
-//         }
+//         } 
 
-//         .filter-group {
-//             max-width: 45%; /* Reduce filter group size for better fit on small screens */
-//         }
-//     }
+//     } 
 
-//     @media (max-width: 480px) {
-//         .search-btn {
-//             width: 100%;
-//             text-align: center;
-//         }
-
-//         .filter-group {
-//             width: 100%;
-//         }
-
+//     @media (max-width: 600px) {
 //         .search-container {
-//             flex-direction: column;
-//             gap: 1rem;
+//             flex-direction: row;
+//             gap: 0.3rem;
 //         }
 
 //         .filter {
-//             flex-direction: column;
-//             gap: 1rem;
+//             flex-direction: row;
+//         }
+
+//         .search-row, 
+//         .filter-group {
+//             width: 45%; /* Adjust width to fit two input fields per row */
 //         }
 //     }
-// `;
+// `; 
 
 
 
-export default SearchAndFilter;
+// // const Wrapper = styled.div`
+// //     background-color: rgba(135, 206, 235, 0.2); /* light sky blue with 20% opacity */
+// //     padding: 1.5rem;
+// //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+// //     border-radius: 8px;
+// //     display: flex;
+// //     flex-direction: column;
+// //     align-items: center;
+// //     gap: 1rem;
+
+// //     .form {
+// //         width: 100%;
+// //         display: flex;
+// //         flex-direction: column;
+// //         gap: 1rem;
+// //     }
+
+// //     .search-container {
+// //         display: flex;
+// //         flex-direction: row;
+// //         justify-content: space-between;
+// //         align-items: center;
+// //         width: 100%;
+// //         flex-wrap: wrap; /* Allow wrapping on smaller screens */
+// //         gap: 1rem;
+// //     }
+
+// //     .search-row {
+// //         flex-grow: 1;
+// //         position: relative;
+// //         min-width: 150px; /* Minimum width to prevent shrinking too much */
+// //     }
+
+// //     .search {
+// //         width: 100%;
+// //         padding: 7px 10px;
+// //         border: 1px solid #ddd;
+// //         border-radius: 4px;
+// //         font-size: 1rem;
+// //     }
+
+// //     .icon {
+// //         position: absolute;
+// //         right: 10px;
+// //         top: 50%;
+// //         transform: translateY(-50%);
+// //         font-size: 1.5rem;
+// //         color: #666;
+// //     }
+
+// //     .search-btn {
+// //         background-color: #1a73e8;
+// //         color: #fff;
+// //         padding: 7px 10px;
+// //         border: none;
+// //         border-radius: 4px;
+// //         cursor: pointer;
+// //         transition: background-color 0.3s;
+// //         white-space: nowrap; /* Prevent button text from breaking */
+// //     }
+
+// //     .search-btn:hover {
+// //         background-color: #135ab5;
+// //     }
+
+// //     .filter {
+// //         display: flex;
+// //         flex-direction: row;
+// //         flex-wrap: wrap; /* Allow filter groups to wrap */
+// //         gap: 1rem;
+// //         justify-content: flex-start; /* Adjust position of filter groups */
+// //         width: 100%;
+// //     }
+
+// //     .filter-group {
+// //         display: flex;
+// //         flex-direction: column;
+// //         gap: 0.2rem;
+// //         min-width: 120px;
+// //         max-width: 180px;
+// //         flex-grow: 1; /* Allow each filter group to grow */
+// //     }
+
+// //     .filter-label {
+// //         font-size: 0.875rem;
+// //         color: #333;
+// //     }
+
+// //     .filter-select,
+// //     .tuition-input {
+// //         padding: 4px 6px;
+// //         border-radius: 4px;
+// //         border: 1px solid #ccc;
+// //         background-color: #fff;
+// //         font-size: 0.9rem;
+// //         transition: border-color 0.3s;
+// //     }
+
+// //     .filter-select:hover,
+// //     .tuition-input:hover {
+// //         border-color: #888;
+// //     }
+
+// //     /* Responsive design */
+// //     @media (max-width: 768px) {
+// //         .search-container {
+// //             flex-direction: row;
+// //             gap: 1rem;
+// //             flex-wrap: wrap;
+// //         }
+
+// //         .search-row {
+// //             width: 100%; /* Ensure search field takes full width on smaller screens */
+// //         }
+
+// //         .filter {
+// //             flex-direction: row;
+// //             flex-wrap: wrap;
+// //             justify-content: space-between; /* Spread filter groups evenly */
+// //             gap: 1rem;
+// //         }
+
+// //         .filter-group {
+// //             max-width: 45%; /* Reduce filter group size for better fit on small screens */
+// //         }
+// //     }
+
+// //     @media (max-width: 480px) {
+// //         .search-btn {
+// //             width: 100%;
+// //             text-align: center;
+// //         }
+
+// //         .filter-group {
+// //             width: 100%;
+// //         }
+
+// //         .search-container {
+// //             flex-direction: column;
+// //             gap: 1rem;
+// //         }
+
+// //         .filter {
+// //             flex-direction: column;
+// //             gap: 1rem;
+// //         }
+// //     }
+// // `;
+
+
+
+// export default SearchAndFilter;
 
 
 
