@@ -1,4 +1,5 @@
 export { default as AddSchool } from "./AddSchool";
+export { default as About } from "./About";
 export { default as Admin } from "./Admin";
 export { default as AllSchools } from "./AllSchools";
 export { default as School } from "./School";

@@ -20,6 +20,7 @@ import {
     MySchools,
     EditProfile,
     ManageUsers,
+    About,
 } from "../pages";
 
 import { SearchAndFilterContext } from "../context/SearchAndFilterContext"; // Updated context
@@ -73,6 +74,13 @@ const router = createBrowserRouter([
                 path: "login",
                 element: <Login></Login>,
             },
+
+            {
+                path: "about-us", // Add the About Us route
+                element: <About />,
+            },
+
+
             {
                 path: "dashboard",
                 element: (
