@@ -87,6 +87,105 @@ export default PaginationCom;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from "react";
+// import ReactPaginate from "react-paginate";
+// import { useSearchAndFilterContext } from "../../context/SearchAndFilterContext";
+// import styled from "styled-components";
+
+// const PaginationCom = () => {
+//     const { handleSearchAndFilter, searchResults } = useSearchAndFilterContext();
+//     const [pageCount, setPageCount] = useState(0);
+//     const [currentPage, setCurrentPage] = useState(1); // Add currentPage state
+
+//     useEffect(() => {
+//         if (searchResults?.pageCount) {
+//             setPageCount(searchResults.pageCount);
+//         }
+//     }, [searchResults]);
+
+//     // Handle page click and update the search parameters
+//     const handlePageClick = (e) => {
+//         const selectedPage = e.selected + 1; // Page index starts from 0 in ReactPaginate
+//         setCurrentPage(selectedPage); // Update the current page
+//         const searchParams = new URLSearchParams(window.location.search);
+//         searchParams.set("page", selectedPage); // Set the page query parameter
+
+//         // Pass the updated search params to the handleSearchAndFilter function
+//         handleSearchAndFilter(Object.fromEntries(searchParams.entries()));
+//     };
+
+//     return (
+//         <Wrapper>
+//             <ReactPaginate
+//                 breakLabel="..."
+//                 onPageChange={handlePageClick}
+//                 pageRangeDisplayed={5}
+//                 pageCount={pageCount}
+//                 forcePage={currentPage - 1} // Keep current page active
+//                 previousLabel="<"
+//                 nextLabel=">"
+//                 className="pagination-list"
+//                 pageClassName="item"
+//                 activeClassName="active"
+//                 previousClassName="prev-item"
+//                 nextClassName="next-item"
+//                 disabledClassName="disabled-item"
+//             />
+//         </Wrapper>
+//     );
+// };
+
+// const Wrapper = styled.div`
+//     margin-top: 20px;
+//     .pagination-list {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         gap: 10px;
+//     }
+//     .pagination-list .item,
+//     .prev-item,
+//     .next-item {
+//         font-size: 15px;
+//         font-weight: 500;
+//         color: #000;
+//         padding: 1px 8px;
+//         border: 1px solid var(--color-accent);
+//         border-radius: 3px;
+//     }
+//     .pagination-list .active {
+//         border: 1px solid var(--color-accent);
+//         background-color: var(--color-accent);
+//         color: var(--color-white);
+//     }
+//     .pagination-list .disabled-item {
+//         background-color: #d3d3d3;
+//         border: none;
+//         color: #000;
+//         cursor: not-allowed;
+//     }
+// `;
+
+// export default PaginationCom;
+
+
+
+
+
+
+
+
 // ---------------WAS WORKING 
 
 

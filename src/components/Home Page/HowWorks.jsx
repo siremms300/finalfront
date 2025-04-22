@@ -96,6 +96,104 @@ export default function HowWorks() {
 
 
 
+// import React, { useEffect, useState } from "react";
+// import { motion } from "framer-motion";
+
+// const links = [
+//   { name: "Find Course", href: "#" },
+//   { name: "Apply", href: "#" },
+//   { name: "Get Admitted", href: "#" },
+//   { name: "Resume on Campus", href: "#" },
+// ];
+
+// const stats = [
+//   { name: "Universities", value: 5000 },
+//   { name: "Courses", value: 30000 },
+//   { name: "Cities", value: 90 },
+//   { name: "Students", value: 100000 },
+// ];
+
+// export default function HowWorks() {
+//   const [counts, setCounts] = useState(stats.map(() => 0));
+
+//   useEffect(() => {
+//     const intervals = stats.map((stat, index) => {
+//       let start = 0;
+//       const increment = Math.ceil(stat.value / 200);
+//       return setInterval(() => {
+//         start += increment;
+//         if (start >= stat.value) {
+//           start = stat.value;
+//           clearInterval(intervals[index]);
+//         }
+//         setCounts((prev) => {
+//           const newCounts = [...prev];
+//           newCounts[index] = start;
+//           return newCounts;
+//         });
+//       }, 50);
+//     });
+//     return () => intervals.forEach(clearInterval);
+//   }, []);
+
+//   return (
+//     <div className="bg-gray-900 py-10 px-4 sm:px-8 md:px-12 lg:px-16 text-white text-center">
+//       <h2 className="text-2xl md:text-3xl font-bold mb-4">How Scovers Portal Works</h2>
+//       <p className="text-base text-gray-300 max-w-xl mx-auto">
+//         Scovers Education Portal connects you to the best educational opportunities worldwide. 
+//         Explore thousands of courses, universities, and scholarships. Simply search, apply, and let us handle the rest!
+//       </p>
+      
+//       <div className="mt-6 flex flex-wrap justify-center gap-4">
+//         {links.map((link) => (
+//           <motion.a
+//             key={link.name}
+//             href={link.href}
+//             whileHover={{ scale: 1.05 }}
+//             className="bg-blue-600 hover:bg-blue-500 transition-all duration-300 px-6 py-3 rounded-lg shadow-md text-lg font-semibold"
+//           >
+//             {link.name} <span className="text-2xl">&rarr;</span>
+//           </motion.a>
+//         ))}
+//       </div>
+      
+//       <div className="mt-8 flex flex-wrap justify-center gap-6">
+//         {stats.map((stat, index) => (
+//           <motion.div 
+//             key={stat.name} 
+//             className="bg-gray-800 px-4 py-4 rounded-lg shadow-md flex flex-col items-center w-36"
+//             animate={{ opacity: [0, 1] }}
+//             transition={{ duration: 1 }}
+//           >
+//             <motion.dd className="text-3xl font-bold text-blue-400">
+//               {counts[index].toLocaleString()}+
+//             </motion.dd>
+//             <dt className="text-gray-300 text-sm mt-1">{stat.name}</dt>
+//           </motion.div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
