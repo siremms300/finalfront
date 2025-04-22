@@ -376,7 +376,7 @@ const Visitor = () => {
               </h2> 
               <p className='text-gray-500 pb-10'>Click on a university to view the university details or click the "Compare" button on any institution card to add it to your comparison list. 
                   You can compare up to 4 institutions at once on key factors like rankings, scholarships, 
-                  and application deadlines. </p>
+                  and application deadlines. After clicking, scroll up to view comparison.</p>
               <div className="space-y-4">
                 {displayedInstitutions.map((institution, index) => (
                   <div 

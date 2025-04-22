@@ -53,7 +53,7 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <span>+234(70)37060212</span>
+                  <span>+234(70)26870997</span>
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ const Footer = () => {
                   </a>
                 </div>
                 <p className="text-base text-body-color dark:text-dark-6">
-                  &copy; 2024 Scovers Global
+                  &copy; 2025 Scovers Global
                 </p>
               </div>
             </div>
