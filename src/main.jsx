@@ -8,7 +8,7 @@ import { RouterProvider } from "react-router-dom";
 import { SchoolContext } from "./context/SchoolContext"; // Import  
 import { ApplicationProvider } from "./context/ApplicationContext"; // Import ApplicationProvider 
 import { WebinarProvider } from "./context/WebinarContext"; // Add this import
-import { SATProvider } from "./context/SatContext";
+import { SATProvider } from "./context/SATContext";
 import { VisitorProvider } from "./context/VisitorContext";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
