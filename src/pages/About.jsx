@@ -119,7 +119,7 @@ const About = () => {
             <div className="bg-[#2D8CD4] text-white p-6 rounded-lg shadow-md mb-8">
               <h2 className="text-2xl font-medium mb-6">OUR STORY</h2>
               <p className="text-white mb-4">
-                Founded in 2015, Scovers has helped thousands of students achieve their dreams of studying abroad. 
+                Founded in 2012, Scovers has helped thousands of students achieve their dreams of studying abroad. 
                 We started with a simple mission: to make quality education accessible to everyone, regardless of 
                 their background or location.
               </p>
@@ -203,21 +203,21 @@ const About = () => {
                   <FaCalendarAlt className="text-[#2D8CD4] mt-1" />
                   <div>
                     <h3 className="text-lg font-medium mb-1">Founded</h3>
-                    <p className="text-gray-700">2015</p>
+                    <p className="text-gray-700">2012</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <FaMapMarkerAlt className="text-[#2D8CD4] mt-1" />
                   <div>
                     <h3 className="text-lg font-medium mb-1">Headquarters</h3>
-                    <p className="text-gray-700">San Francisco, CA</p>
+                    <p className="text-gray-700">Abuja, Nigeria</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <FaClock className="text-[#2D8CD4] mt-1" />
                   <div>
                     <h3 className="text-lg font-medium mb-1">Operating Hours</h3>
-                    <p className="text-gray-700">Mon-Fri: 9AM - 6PM</p>
+                    <p className="text-gray-700">Mon-Fri: 10AM - 4PM</p>
                     <p className="text-sm text-gray-500">Sat: 10AM - 4PM</p>
                   </div>
                 </div>
