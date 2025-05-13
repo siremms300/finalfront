@@ -147,7 +147,7 @@ const School = () => {
                             <div className="info-item">
                                 <FaCalendarAlt className="info-icon" />
                                 <div>
-                                    <h3>Application Deadline</h3>
+                                    <h3>Date Uploaded</h3>
                                     <p>{deadlineDate}</p>
                                 </div>
                             </div>
