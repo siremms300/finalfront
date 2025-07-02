@@ -15,6 +15,7 @@ export { default as EditProfile } from "./EditProfile";
 export { default as ManageUsers } from "./ManageUsers";
 export { default as ManageSat } from "./ManageSat";
 export { default as ManageWebinar } from "./ManageWebinar";
+export { default as UniversityWebinar } from "./UniversityWebinar";
 export { default as ManageVisitors } from "./ManageVisitors";
 export { default as Register } from "./Register";
 export { default as Stats } from "./Stats";
