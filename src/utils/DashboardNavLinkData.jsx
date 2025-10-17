@@ -1,8 +1,4 @@
-
-
-
-
-
+ 
 import React from "react";
 
 import { IoIosStats } from "react-icons/io";
@@ -11,7 +7,9 @@ import { FiUser } from "react-icons/fi";
 import { FaUserShield } from "react-icons/fa";
 import { MdManageAccounts } from "react-icons/md";
 import { FaSchool } from "react-icons/fa";
-import { FaUsers } from "react-icons/fa6";
+import { FaUsers } from "react-icons/fa6"; 
+import { FaUserGraduate } from "react-icons/fa6";
+import { FaChartBar } from "react-icons/fa"; 
 
 const AdminLinks = [
     {
@@ -40,6 +38,11 @@ const AdminLinks = [
         icon: <FaUsers />,
     },
     {
+        text: "analytics", // NEW ANALYTICS LINK
+        path: "analytics",
+        icon: <FaChartBar />,
+    },
+    {
         text: "manage webinars",
         path: "manage-webinars",
         icon: <FaUsers />,
@@ -52,6 +55,17 @@ const AdminLinks = [
     {
         text: "applications",
         path: "applications",
+        icon: <FaUsers />,
+    }, 
+    
+    {
+        text: "manage upi applications",
+        path: "manage-upi",
+        icon: <FaUserGraduate />,  
+    },
+    {
+        text: "blog", // NEW ANALYTICS LINK
+        path: "manage-blogs",
         icon: <FaUsers />,
     },
 ];

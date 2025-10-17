@@ -29,6 +29,9 @@ const Navbar = ({ navbarRef }) => {
                     <NavLink className="nav-item" to="/about-us" onClick={toggleSidebar}>
                         About
                     </NavLink>
+                    <NavLink className="nav-item" to="/blog" onClick={toggleSidebar}>
+                        Blog
+                    </NavLink>
                     <NavLink className="nav-item" to="/all-schools" onClick={toggleSidebar}>
                         Courses
                     </NavLink>

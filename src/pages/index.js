@@ -1,3 +1,8 @@
+export { default as BlogList } from "./BlogList";
+export { default as BlogDetail } from "./BlogDetail";
+export { default as BlogEditor } from "./BlogEditor";
+export { default as ManageBlogs } from "./ManageBlogs";
+export { default as BlogPreview } from "./BlogPreview";
 export { default as AddSchool } from "./AddSchool";
 export { default as About } from "./About";
 export { default as Admin } from "./Admin";
@@ -24,11 +29,9 @@ export { default as Webinar } from "./Webinar";
 export { default as Sat } from "./Sat";
 export { default as Visitor } from "./Visitor";
 export { default as Applications } from "./Applications";
-
-
-
-
-
+export { default as UPI } from "./UPI";
+export { default as ManageUPI } from "./ManageUPI"; 
+export { default as AnalyticsDashboard } from "./AnalyticsDashboard"; 
 
 
 

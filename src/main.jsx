@@ -8,11 +8,14 @@ import { RouterProvider } from "react-router-dom";
 import { SchoolContext } from "./context/SchoolContext";
 import { ApplicationProvider } from "./context/ApplicationContext";
 import { WebinarProvider } from "./context/WebinarContext";
+import { UPIProvider } from "./context/UPIContext";
+import { BlogProvider } from "./context/BlogContext";
 import { UniversityWebinarProvider } from "./context/UniversityWebinarContext";
 import { SATProvider } from "./context/SATContext";
 import { VisitorProvider } from "./context/VisitorContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { UserContext } from "./context/UserContext";
+import { AnalyticsProvider } from "./context/AnalyticsContext";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -22,21 +25,27 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode> 
     <QueryClientProvider client={queryClient}>
-      <UserContext>
-        <SchoolContext>
-          <ApplicationProvider>          
-            <WebinarProvider>
-              <UniversityWebinarProvider>
-                <SATProvider>
-                  <VisitorProvider>                                    
-                    <RouterProvider router={router}></RouterProvider>
-                  </VisitorProvider> 
-                </SATProvider>
-              </UniversityWebinarProvider>
-            </WebinarProvider>
-          </ApplicationProvider>
-        </SchoolContext>
-      </UserContext>
+      <AnalyticsProvider>
+        <UserContext>
+          <SchoolContext>
+            <ApplicationProvider>          
+              <WebinarProvider>
+                <UniversityWebinarProvider>
+                  <SATProvider>
+                    <UPIProvider>     {/* I added this for UPI  */}
+                      <BlogProvider>
+                        <VisitorProvider>                                    
+                          <RouterProvider router={router}></RouterProvider>
+                        </VisitorProvider> 
+                      </BlogProvider>
+                    </UPIProvider> 
+                  </SATProvider>
+                </UniversityWebinarProvider>
+              </WebinarProvider>
+            </ApplicationProvider>
+          </SchoolContext>
+        </UserContext>
+      </AnalyticsProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

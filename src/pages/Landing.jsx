@@ -13,7 +13,12 @@ import {
   FaEnvelope,
   FaUniversity,
   FaGraduationCap,
-  FaUsers
+  FaUsers,
+  FaRocket,
+  FaAward,
+  FaGlobe,
+  FaShieldAlt,
+  FaChartLine
 } from 'react-icons/fa';
 import hero from "../assets/media/LandingPage/hero.jpg";
 import hero1 from "../assets/media/LandingPage/hero1.jpg";
@@ -102,9 +107,34 @@ const Landing = () => {
         ]
     };
 
+    const upiBenefits = [
+        {
+            icon: FaChartLine,
+            title: "Personalized Roadmap",
+            description: "Customized university application strategy based on your profile and goals"
+        },
+        {
+            icon: FaGlobe,
+            title: "Global University Access",
+            description: "Direct connections with 50+ top universities worldwide"
+        },
+        {
+            icon: FaAward,
+            title: "Scholarship Guidance",
+            description: "Expert assistance in securing scholarships and financial aid"
+        },
+        {
+            icon: FaShieldAlt,
+            title: "Visa Support",
+            description: "Comprehensive visa application guidance and documentation support"
+        }
+    ];
+
     return (
         <>
             <Navbar navbarRef={navbarRef} />
+            
+            {/* Hero Section */}
             <HeroSection>
                 <Overlay />
                 <ContentWrapper>
@@ -113,110 +143,184 @@ const Landing = () => {
                             Your Global Education <span className="highlight">Gateway</span>
                         </h1>
                         <p>
-                            Discover the best universities, prepare for exams, and join our webinars - 
-                            all in one place to launch your international education journey.
+                            Discover the best universities, prepare for exams, join our webinars, 
+                            and accelerate your journey with University Pathways International - 
+                            all in one place to launch your international education.
                         </p>
                         <div className="cta-buttons">
-                            <Link className="cta-button" to="/all-schools">
+                            <Link className="cta-button primary" to="/all-schools">
                                 Explore Universities
+                            </Link>
+                            <Link className="cta-button secondary" to="/upi">
+                                Join UPI Program
                             </Link>
                         </div>
                     </TextContent>
                 </ContentWrapper>
             </HeroSection>
 
-            {/* Quick Links Section - Now with 4 cards */}
-            <section className="max-w-7xl mx-auto px-4 py-12">
+            {/* Quick Links Section - Updated with UPI */}
+            <section className="max-w-7xl mx-auto px-4 py-16">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Start Your Journey
+                    </h2>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Choose your path to international education success with our comprehensive services
+                    </p>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <Link to="/webinar" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <Link to="/webinar" className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                         <div className="p-6">
-                            <div className="text-blue-600 text-4xl mb-4">🎓</div>
+                            <div className="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform">🎓</div>
                             <h2 className="text-xl font-bold text-gray-800 mb-2">Upcoming Webinars</h2>
-                            <p className="text-gray-600">Join our expert-led sessions on studying abroad</p>
-                            <div className="mt-4 text-blue-600 font-medium">View Schedule →</div>
+                            <p className="text-gray-600 mb-4">Join our expert-led sessions on studying abroad</p>
+                            <div className="text-blue-600 font-medium flex items-center gap-2">
+                                View Schedule <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
                         </div>
                     </Link>
 
-                    <Link to="/sat" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <Link to="/sat" className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                         <div className="p-6">
-                            <div className="text-blue-600 text-4xl mb-4">✏️</div>
+                            <div className="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform">✏️</div>
                             <h2 className="text-xl font-bold text-gray-800 mb-2">SAT Preparation</h2>
-                            <p className="text-gray-600">Register for our annual SAT challenge competition</p>
-                            <div className="mt-4 text-blue-600 font-medium">Learn More →</div>
+                            <p className="text-gray-600 mb-4">Register for our annual SAT challenge competition</p>
+                            <div className="text-blue-600 font-medium flex items-center gap-2">
+                                Learn More <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
                         </div>
                     </Link>
 
-                    <Link to="/all-schools" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <Link to="/upi" className="group bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div className="p-6 text-white">
+                            <div className="text-white text-4xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
+                            <h2 className="text-xl font-bold text-white mb-2">UPI Program</h2>
+                            <p className="text-blue-100 mb-4">Accelerate your path to top global universities</p>
+                            <div className="text-white font-medium flex items-center gap-2">
+                                Get Started <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/all-schools" className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                         <div className="p-6">
-                            <div className="text-blue-600 text-4xl mb-4">🏫</div>
+                            <div className="text-blue-600 text-4xl mb-4 group-hover:scale-110 transition-transform">🏫</div>
                             <h2 className="text-xl font-bold text-gray-800 mb-2">Explore Universities</h2>
-                            <p className="text-gray-600">Browse our extensive list of partner institutions</p>
-                            <div className="mt-4 text-blue-600 font-medium">Browse Now →</div>
-                        </div>
-                    </Link>
-
-                    <Link to="/visitor" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                        <div className="p-6">
-                            <div className="text-blue-600 text-4xl mb-4">🌍</div>
-                            <h2 className="text-xl font-bold text-gray-800 mb-2">University Matching</h2>
-                            <p className="text-gray-600">Find your perfect international university match</p>
-                            <div className="mt-4 text-blue-600 font-medium">Get Started →</div>
+                            <p className="text-gray-600 mb-4">Browse our extensive list of partner institutions</p>
+                            <div className="text-blue-600 font-medium flex items-center gap-2">
+                                Browse Now <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
                         </div>
                     </Link>
                 </div>
             </section>
 
-            {/* Stats Section - Moved up for credibility */}
-            <section className="py-12 bg-white">
+            {/* UPI Program Highlight Section */}
+            <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 text-white">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                                <FaRocket className="text-yellow-300" />
+                                New Program
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                                University Pathways International
+                            </h2>
+                            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+                                Accelerate your journey to top global universities with our intensive preparation program. 
+                                Get personalized guidance, scholarship support, and guaranteed admission pathways.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Link 
+                                    to="/upi" 
+                                    className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors text-center"
+                                >
+                                    Apply Now
+                                </Link>
+                                <Link 
+                                    to="/upi" 
+                                    className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg transition-colors text-center"
+                                >
+                                    Learn More
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            {upiBenefits.map((benefit, index) => (
+                                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                                    <benefit.icon className="text-3xl text-yellow-300 mx-auto mb-3" />
+                                    <h3 className="font-bold text-white mb-2">{benefit.title}</h3>
+                                    <p className="text-blue-100 text-sm">{benefit.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats Section */}
+            <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4 text-center">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-8">Our Stats</h2>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <FaUniversity className="text-blue-600 text-2xl mx-auto mb-3" />
-                            <div className="text-3xl font-bold text-blue-600 mb-2">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted by Students Worldwide</h2>
+                    <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+                        Join thousands of successful students who have achieved their dreams through our platform
+                    </p>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg">
+                            <FaUniversity className="text-blue-600 text-3xl mx-auto mb-4" />
+                            <div className="text-4xl font-bold text-blue-600 mb-2">
                                 {universityCount.toLocaleString()}+
                             </div>
-                            <h3 className="text-base font-medium text-gray-800 mb-1">Universities Worldwide</h3>
-                            <p className="text-sm text-gray-600">Access to top institutions</p>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Partner Universities</h3>
+                            <p className="text-gray-600">Access to top institutions worldwide</p>
                         </div>
                         
-                        <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <FaBook className="text-blue-600 text-2xl mx-auto mb-3" />
-                            <div className="text-3xl font-bold text-blue-600 mb-2">
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg">
+                            <FaBook className="text-blue-600 text-3xl mx-auto mb-4" />
+                            <div className="text-4xl font-bold text-blue-600 mb-2">
                                 {courseCount.toLocaleString()}+
                             </div>
-                            <h3 className="text-base font-medium text-gray-800 mb-1">Courses Available</h3>
-                            <p className="text-sm text-gray-600">Wide academic program selection</p>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Courses Available</h3>
+                            <p className="text-gray-600">Wide academic program selection</p>
                         </div>
                         
-                        <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <FaUsers className="text-blue-600 text-2xl mx-auto mb-3" />
-                            <div className="text-3xl font-bold text-blue-600 mb-2">
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg">
+                            <FaUsers className="text-blue-600 text-3xl mx-auto mb-4" />
+                            <div className="text-4xl font-bold text-blue-600 mb-2">
                                 {studentCount.toLocaleString()}+
                             </div>
-                            <h3 className="text-base font-medium text-gray-800 mb-1">Students Helped</h3>
-                            <p className="text-sm text-gray-600">Successful placements</p>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Students Helped</h3>
+                            <p className="text-gray-600">Successful international placements</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Partner Universities Section */}
-            <section className="bg-gray-50 py-12">
+            <section className="bg-gray-50 py-16">
                 <div className="max-w-7xl mx-auto px-4">
-                    <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">Our Partnering Universities</h2>
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Our Partner Universities
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            We partner with top institutions worldwide to bring you the best educational opportunities
+                        </p>
+                    </div>
                     <div className="px-8">
                         <Slider {...carouselSettings}>
                             {universityLogos.map((university) => (
                                 <div key={university.id} className="px-2">
-                                    <div className="bg-white p-4 rounded-lg shadow-sm h-32 flex items-center justify-center">
+                                    <div className="bg-white p-6 rounded-xl shadow-sm h-40 flex items-center justify-center hover:shadow-md transition-shadow">
                                         <img 
                                             src={university.logo} 
                                             alt={university.name} 
-                                            className="max-h-16 max-w-full object-contain"
+                                            className="max-h-20 max-w-full object-contain"
                                         />
                                     </div>
-                                    <p className="text-center mt-2 text-gray-600">{university.name}</p>
+                                    <p className="text-center mt-3 text-gray-600 font-medium">{university.name}</p>
                                 </div>
                             ))}
                         </Slider>
@@ -228,50 +332,78 @@ const Landing = () => {
             <HowItWorks />
 
             {/* Why Choose Us Section */}
-            <section className="bg-blue-50 py-12">
+            <section className="bg-white py-16">
                 <div className="max-w-7xl mx-auto px-4">
-                    <h2 className="text-xl font-bold text-center text-gray-800 mb-8">Why Choose Scovers?</h2>
-                    <div className="grid md:grid-cols-2 gap-4">
-                        <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
-                            <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Why Choose Scovers Education?
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            We provide comprehensive support at every step of your international education journey
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
                                 <FaUserTie className="text-lg" />
                             </div>
-                            <div>
-                                <h3 className="text-base font-medium text-gray-800 mb-1">Expert Advisors</h3>
-                                <p className="text-sm text-gray-600">Experienced international education counselors</p>
-                            </div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-3">Expert Advisors</h3>
+                            <p className="text-gray-600">Experienced international education counselors with proven track records</p>
                         </div>
                         
-                        <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
-                            <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
                                 <FaBook className="text-lg" />
                             </div>
-                            <div>
-                                <h3 className="text-base font-medium text-gray-800 mb-1">Comprehensive Support</h3>
-                                <p className="text-sm text-gray-600">From application to visa processing</p>
-                            </div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-3">End-to-End Support</h3>
+                            <p className="text-gray-600">Comprehensive assistance from application to visa processing and beyond</p>
                         </div>
                         
-                        <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
-                            <div className="bg-blue-100 p-2 rounded-full text-blue-600">
-                                <FaFileAlt className="text-lg" />
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                                <FaAward className="text-lg" />
                             </div>
-                            <div>
-                                <h3 className="text-base font-medium text-gray-800 mb-1">Success Rate</h3>
-                                <p className="text-sm text-gray-600">95% admission success rate</p>
-                            </div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-3">Proven Success</h3>
+                            <p className="text-gray-600">95% admission success rate with scholarship opportunities</p>
                         </div>
                         
-                        <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
-                            <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
                                 <FaEnvelope className="text-lg" />
                             </div>
-                            <div>
-                                <h3 className="text-base font-medium text-gray-800 mb-1">Ongoing Assistance</h3>
-                                <p className="text-sm text-gray-600">Continued support post-admission</p>
-                            </div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-3">Lifelong Support</h3>
+                            <p className="text-gray-600">Continued assistance and networking opportunities post-admission</p>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Final CTA Section */}
+            <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 text-white">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                        Ready to Start Your International Education Journey?
+                    </h2>
+                    <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                        Join thousands of successful students who have achieved their dreams with Scovers Education
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link 
+                            to="/upi" 
+                            className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-colors text-lg"
+                        >
+                            Start with UPI Program
+                        </Link>
+                        <Link 
+                            to="/all-schools" 
+                            className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-colors text-lg"
+                        >
+                            Explore Universities
+                        </Link>
+                    </div>
+                    <p className="text-blue-200 mt-6">
+                        Need guidance? <Link to="/contact" className="text-white font-semibold underline">Contact our advisors</Link>
+                    </p>
                 </div>
             </section>
         </>
@@ -290,14 +422,18 @@ const HeroSection = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 70vh;
     padding: 2rem;
     color: white;
     text-align: center;
-    animation: ${fadeBackgrounds} 12s infinite ease-in-out;
+    animation: ${fadeBackgrounds} 16s infinite ease-in-out;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @media (min-width: 768px) {
+        min-height: 80vh;
+    }
 `;
 
 const Overlay = styled.div`
@@ -306,7 +442,7 @@ const Overlay = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
 `;
 
 const ContentWrapper = styled.div`
@@ -318,20 +454,25 @@ const ContentWrapper = styled.div`
 
 const TextContent = styled.div`
     h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: bold;
-        margin-bottom: 1rem;
-        line-height: 1.3;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
     }
 
     .highlight {
-        color: #247BF7;
+        color: #60a5fa;
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     p {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
         line-height: 1.6;
+        opacity: 0.9;
     }
 
     .cta-buttons {
@@ -343,38 +484,470 @@ const TextContent = styled.div`
 
     .cta-button {
         display: inline-block;
-        background: #247BF7;
-        color: white;
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 2rem;
         text-decoration: none;
         font-weight: bold;
-        border-radius: 5px;
+        border-radius: 8px;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 1.1rem;
+        
+        &.primary {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-        &:hover {
-            background: #1a5fcb;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            &:hover {
+                background: #2563eb;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+        }
+        
+        &.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+
+            &:hover {
+                background: white;
+                color: #3b82f6;
+                transform: translateY(-2px);
+            }
         }
     }
 
     @media (max-width: 768px) {
         h1 {
-            font-size: 2rem;
+            font-size: 2.25rem;
         }
 
         p {
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .cta-button {
-            padding: 0.7rem 1.2rem;
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
         }
     }
 `;
 
 export default Landing;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useRef, useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
+// import styled, { keyframes } from "styled-components";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import Navbar from "../components/shared/Navbar";
+// import HowItWorks from "../components/HowItWorks";
+// import { 
+//   FaUserTie, 
+//   FaBook, 
+//   FaFileAlt, 
+//   FaEnvelope,
+//   FaUniversity,
+//   FaGraduationCap,
+//   FaUsers
+// } from 'react-icons/fa';
+// import hero from "../assets/media/LandingPage/hero.jpg";
+// import hero1 from "../assets/media/LandingPage/hero1.jpg";
+// import hero2 from "../assets/media/LandingPage/hero2.jpg";
+// import hero3 from "../assets/media/LandingPage/hero3.jpg";
+
+// const universityLogos = [
+//   { id: 1, name: "University of Kentucky", logo: "/kentucky.png" },
+//   { id: 2, name: "University of Michigan", logo: "/michigan.png" },
+//   { id: 3, name: "University of Virginia", logo: "/universityvirginia.png" },
+//   { id: 4, name: "EU Business School", logo: "/eu.png" },
+//   { id: 5, name: "Catholic University of America", logo: "/cua.png" },
+//   { id: 6, name: "Wichita State University", logo: "/wichita.png" },
+//   { id: 7, name: "Ottawa University", logo: "/ottawa.jpeg" },
+//   { id: 8, name: "Ball State University", logo: "/ballstate.png" },
+// ];
+
+// const Landing = () => {
+//     const navbarRef = useRef(null);
+//     const [universityCount, setUniversityCount] = useState(0);
+//     const [courseCount, setCourseCount] = useState(0);
+//     const [studentCount, setStudentCount] = useState(0);
+
+//     useEffect(() => {
+//         const duration = 2000;
+//         const increment = 100;
+//         const steps = duration / increment;
+        
+//         const universityStep = 5000 / steps;
+//         const courseStep = 30000 / steps;
+//         const studentStep = 100000 / steps;
+
+//         let currentUni = 0;
+//         let currentCourse = 0;
+//         let currentStudent = 0;
+
+//         const timer = setInterval(() => {
+//             currentUni += universityStep;
+//             currentCourse += courseStep;
+//             currentStudent += studentStep;
+
+//             if (currentUni >= 5000) currentUni = 5000;
+//             if (currentCourse >= 30000) currentCourse = 30000;
+//             if (currentStudent >= 100000) currentStudent = 100000;
+
+//             setUniversityCount(Math.floor(currentUni));
+//             setCourseCount(Math.floor(currentCourse));
+//             setStudentCount(Math.floor(currentStudent));
+
+//             if (currentUni >= 5000 && currentCourse >= 30000 && currentStudent >= 100000) {
+//                 clearInterval(timer);
+//             }
+//         }, increment);
+
+//         return () => clearInterval(timer);
+//     }, []);
+
+//     const carouselSettings = {
+//         dots: false,
+//         infinite: true,
+//         speed: 500,
+//         slidesToShow: 5,
+//         slidesToScroll: 1,
+//         autoplay: true,
+//         autoplaySpeed: 2000,
+//         pauseOnHover: true,
+//         responsive: [
+//             {
+//                 breakpoint: 1024,
+//                 settings: {
+//                     slidesToShow: 4,
+//                 }
+//             },
+//             {
+//                 breakpoint: 768,
+//                 settings: {
+//                     slidesToShow: 3,
+//                 }
+//             },
+//             {
+//                 breakpoint: 480,
+//                 settings: {
+//                     slidesToShow: 2,
+//                 }
+//             }
+//         ]
+//     };
+
+//     return (
+//         <>
+//             <Navbar navbarRef={navbarRef} />
+//             <HeroSection>
+//                 <Overlay />
+//                 <ContentWrapper>
+//                     <TextContent>
+//                         <h1>
+//                             Your Global Education <span className="highlight">Gateway</span>
+//                         </h1>
+//                         <p>
+//                             Discover the best universities, prepare for exams, and join our webinars - 
+//                             all in one place to launch your international education journey.
+//                         </p>
+//                         <div className="cta-buttons">
+//                             <Link className="cta-button" to="/all-schools">
+//                                 Explore Universities
+//                             </Link>
+//                         </div>
+//                     </TextContent>
+//                 </ContentWrapper>
+//             </HeroSection>
+
+//             {/* Quick Links Section - Now with 4 cards */}
+//             <section className="max-w-7xl mx-auto px-4 py-12">
+//                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+//                     <Link to="/webinar" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+//                         <div className="p-6">
+//                             <div className="text-blue-600 text-4xl mb-4">🎓</div>
+//                             <h2 className="text-xl font-bold text-gray-800 mb-2">Upcoming Webinars</h2>
+//                             <p className="text-gray-600">Join our expert-led sessions on studying abroad</p>
+//                             <div className="mt-4 text-blue-600 font-medium">View Schedule →</div>
+//                         </div>
+//                     </Link>
+
+//                     <Link to="/sat" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+//                         <div className="p-6">
+//                             <div className="text-blue-600 text-4xl mb-4">✏️</div>
+//                             <h2 className="text-xl font-bold text-gray-800 mb-2">SAT Preparation</h2>
+//                             <p className="text-gray-600">Register for our annual SAT challenge competition</p>
+//                             <div className="mt-4 text-blue-600 font-medium">Learn More →</div>
+//                         </div>
+//                     </Link>
+
+//                     <Link to="/all-schools" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+//                         <div className="p-6">
+//                             <div className="text-blue-600 text-4xl mb-4">🏫</div>
+//                             <h2 className="text-xl font-bold text-gray-800 mb-2">Explore Universities</h2>
+//                             <p className="text-gray-600">Browse our extensive list of partner institutions</p>
+//                             <div className="mt-4 text-blue-600 font-medium">Browse Now →</div>
+//                         </div>
+//                     </Link>
+
+//                     <Link to="/visitor" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+//                         <div className="p-6">
+//                             <div className="text-blue-600 text-4xl mb-4">🌍</div>
+//                             <h2 className="text-xl font-bold text-gray-800 mb-2">University Matching</h2>
+//                             <p className="text-gray-600">Find your perfect international university match</p>
+//                             <div className="mt-4 text-blue-600 font-medium">Get Started →</div>
+//                         </div>
+//                     </Link>
+//                 </div>
+//             </section>
+
+//             {/* Stats Section - Moved up for credibility */}
+//             <section className="py-12 bg-white">
+//                 <div className="max-w-7xl mx-auto px-4 text-center">
+//                     <h2 className="text-2xl font-bold text-gray-800 mb-8">Our Stats</h2>
+//                     <div className="grid md:grid-cols-3 gap-6">
+//                         <div className="bg-white p-6 rounded-lg border border-gray-200">
+//                             <FaUniversity className="text-blue-600 text-2xl mx-auto mb-3" />
+//                             <div className="text-3xl font-bold text-blue-600 mb-2">
+//                                 {universityCount.toLocaleString()}+
+//                             </div>
+//                             <h3 className="text-base font-medium text-gray-800 mb-1">Universities Worldwide</h3>
+//                             <p className="text-sm text-gray-600">Access to top institutions</p>
+//                         </div>
+                        
+//                         <div className="bg-white p-6 rounded-lg border border-gray-200">
+//                             <FaBook className="text-blue-600 text-2xl mx-auto mb-3" />
+//                             <div className="text-3xl font-bold text-blue-600 mb-2">
+//                                 {courseCount.toLocaleString()}+
+//                             </div>
+//                             <h3 className="text-base font-medium text-gray-800 mb-1">Courses Available</h3>
+//                             <p className="text-sm text-gray-600">Wide academic program selection</p>
+//                         </div>
+                        
+//                         <div className="bg-white p-6 rounded-lg border border-gray-200">
+//                             <FaUsers className="text-blue-600 text-2xl mx-auto mb-3" />
+//                             <div className="text-3xl font-bold text-blue-600 mb-2">
+//                                 {studentCount.toLocaleString()}+
+//                             </div>
+//                             <h3 className="text-base font-medium text-gray-800 mb-1">Students Helped</h3>
+//                             <p className="text-sm text-gray-600">Successful placements</p>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </section>
+
+//             {/* Partner Universities Section */}
+//             <section className="bg-gray-50 py-12">
+//                 <div className="max-w-7xl mx-auto px-4">
+//                     <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">Our Partnering Universities</h2>
+//                     <div className="px-8">
+//                         <Slider {...carouselSettings}>
+//                             {universityLogos.map((university) => (
+//                                 <div key={university.id} className="px-2">
+//                                     <div className="bg-white p-4 rounded-lg shadow-sm h-32 flex items-center justify-center">
+//                                         <img 
+//                                             src={university.logo} 
+//                                             alt={university.name} 
+//                                             className="max-h-16 max-w-full object-contain"
+//                                         />
+//                                     </div>
+//                                     <p className="text-center mt-2 text-gray-600">{university.name}</p>
+//                                 </div>
+//                             ))}
+//                         </Slider>
+//                     </div>
+//                 </div>
+//             </section>
+
+//             {/* How It Works Section */}
+//             <HowItWorks />
+
+//             {/* Why Choose Us Section */}
+//             <section className="bg-blue-50 py-12">
+//                 <div className="max-w-7xl mx-auto px-4">
+//                     <h2 className="text-xl font-bold text-center text-gray-800 mb-8">Why Choose Scovers?</h2>
+//                     <div className="grid md:grid-cols-2 gap-4">
+//                         <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+//                             <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+//                                 <FaUserTie className="text-lg" />
+//                             </div>
+//                             <div>
+//                                 <h3 className="text-base font-medium text-gray-800 mb-1">Expert Advisors</h3>
+//                                 <p className="text-sm text-gray-600">Experienced international education counselors</p>
+//                             </div>
+//                         </div>
+                        
+//                         <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+//                             <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+//                                 <FaBook className="text-lg" />
+//                             </div>
+//                             <div>
+//                                 <h3 className="text-base font-medium text-gray-800 mb-1">Comprehensive Support</h3>
+//                                 <p className="text-sm text-gray-600">From application to visa processing</p>
+//                             </div>
+//                         </div>
+                        
+//                         <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+//                             <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+//                                 <FaFileAlt className="text-lg" />
+//                             </div>
+//                             <div>
+//                                 <h3 className="text-base font-medium text-gray-800 mb-1">Success Rate</h3>
+//                                 <p className="text-sm text-gray-600">95% admission success rate</p>
+//                             </div>
+//                         </div>
+                        
+//                         <div className="bg-white p-4 rounded-lg shadow-sm flex items-start gap-3">
+//                             <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+//                                 <FaEnvelope className="text-lg" />
+//                             </div>
+//                             <div>
+//                                 <h3 className="text-base font-medium text-gray-800 mb-1">Ongoing Assistance</h3>
+//                                 <p className="text-sm text-gray-600">Continued support post-admission</p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </section>
+//         </>
+//     );
+// };
+
+// const fadeBackgrounds = keyframes`
+//     0%, 100% { background-image: url(${hero}); opacity: 1; }
+//     25% { background-image: url(${hero1}); opacity: 1; }
+//     50% { background-image: url(${hero2}); opacity: 1; }
+//     75% { background-image: url(${hero3}); opacity: 1; }
+// `;
+
+// const HeroSection = styled.section`
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     min-height: 60vh;
+//     padding: 2rem;
+//     color: white;
+//     text-align: center;
+//     animation: ${fadeBackgrounds} 12s infinite ease-in-out;
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+// `;
+
+// const Overlay = styled.div`
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgba(0, 0, 0, 0.6);
+// `;
+
+// const ContentWrapper = styled.div`
+//     position: relative;
+//     z-index: 2;
+//     max-width: 800px;
+//     width: 90%;
+// `;
+
+// const TextContent = styled.div`
+//     h1 {
+//         font-size: 2.5rem;
+//         font-weight: bold;
+//         margin-bottom: 1rem;
+//         line-height: 1.3;
+//     }
+
+//     .highlight {
+//         color: #247BF7;
+//     }
+
+//     p {
+//         font-size: 1.1rem;
+//         margin-bottom: 1.5rem;
+//         line-height: 1.6;
+//     }
+
+//     .cta-buttons {
+//         display: flex;
+//         justify-content: center;
+//         gap: 1rem;
+//         flex-wrap: wrap;
+//     }
+
+//     .cta-button {
+//         display: inline-block;
+//         background: #247BF7;
+//         color: white;
+//         padding: 0.8rem 1.5rem;
+//         text-decoration: none;
+//         font-weight: bold;
+//         border-radius: 5px;
+//         transition: all 0.3s ease;
+//         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+//         &:hover {
+//             background: #1a5fcb;
+//             transform: translateY(-2px);
+//             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+//         }
+//     }
+
+//     @media (max-width: 768px) {
+//         h1 {
+//             font-size: 2rem;
+//         }
+
+//         p {
+//             font-size: 1rem;
+//         }
+
+//         .cta-button {
+//             padding: 0.7rem 1.2rem;
+//         }
+//     }
+// `;
+
+// export default Landing;
 
 
 
