@@ -22,7 +22,7 @@ const LoadingBar = ({ onLoadingComplete }) => {
     return (
         <Wrapper>
             <div className="progress-bar-container">
-                <p className="progress-text">Loading...</p>
+                <p className="progress-text">Progress...</p>
                 <div className="progress-bar">
                     <div className="progress-bar-fill"></div>
                 </div>
